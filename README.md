@@ -3,7 +3,7 @@ Using data from streaming services to tv show and movie popularity.
 
 ## Completed:
 - Gathered and compiled initial Data
-- Used API to get IMDB rating data
+- Used (using) API to get IMDB rating data
 
 ## Next Steps:
 Data has some mixed-in values with ratings and duration. We need to find all the columns where ratings has a duration value, and put it back into the duration column.
