@@ -2,8 +2,8 @@
 Using data from streaming services to tv show and movie popularity.
 
 ## Completed:
-- Gathered and compiled initial Data
-- Used (using) API to get IMDB rating data
+- Gathered and compiled initial data
+- Used API to get IMDB rating data
 - Fixed rating / duration mixup
 - Turned `genre` into a factor variable, with levels which are not mutually exclusive.
 
