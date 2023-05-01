@@ -1,0 +1,10 @@
+---
+title: "Movie and TV-Show Popularity Prediction"
+format: html
+server: shiny
+---
+
+## Shiny app test
+```{python}
+import ./Modeling/model_interact/app
+```
