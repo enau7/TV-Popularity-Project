@@ -1,0 +1,1 @@
+The most clean and most recent file you should be using is `streaming_titles_clean.csv`. If you are in a different directory, i.e. `Presentables` or `Visuals`, its path is `../Data/data/streaming_titles_clean.csv`.

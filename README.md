@@ -2,11 +2,13 @@
 Using data from streaming services to tv show and movie popularity.
 
 ## Completed:
-- Gathered and compiled initial Data
-- Used (using) API to get IMDB rating data
+- Gathered and compiled initial data
+- Used API to get IMDB rating data
+- Fixed rating / duration mixup
+- Turned `genre` into a factor variable, with levels which are not mutually exclusive.
 
 ## Next Steps:
-Data has some mixed-in values with ratings and duration. We need to find all the columns where ratings has a duration value, and put it back into the duration column.
+Start fitting models, continue with visualization.
 
 Can we find budget / revenue data? Probably not, it looks like you have to pay (a lot) for it, but we could try.
 
