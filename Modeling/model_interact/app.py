@@ -2,10 +2,20 @@ from shiny import App, render, ui, run_app
 
 import pandas as pd
 import joblib
+import sklearn
+import os
 
-tv_df = pd.read_csv(r"C:\Users\Colton\Documents\GitHub\TV-Popularity-Project\Data\data\streaming_titles_clean.csv")
+abs_path = os.path.dirname(__file__)
+tvpop = "TV-Popularity-Project/"
+largest_folder_index = abs_path.find(tvpop)+len(tvpop)
+largest_folder = abs_path[:largest_folder_index]
 
-lm = joblib.load(r"C:\Users\Colton\Documents\GitHub\TV-Popularity-Project\Modeling\models\linear_regression.joblib")
+
+tv_df_filename = largest_folder + "Data/data/streaming_titles_clean.csv"
+lm_filename = largest_folder + "Modeling/models/linear_regression.joblib"
+
+tv_df = pd.read_csv(tv_df_filename)
+lm = joblib.load(lm_filename)
 
 genres = tv_df.columns[tv_df.columns.str.startswith('genre.')]
 pretty_genre = lambda x: x[6:].replace("_"," ")
