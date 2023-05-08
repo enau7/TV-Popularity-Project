@@ -1,35 +1,36 @@
 from shiny import App, render, reactive, ui, run_app
 
 import pandas as pd
+import numpy as np
 import joblib
 import sklearn
 import os
 
-def truesum(iterable):
-    print(iterable)
-    if len(iterable) == 0:
-        return None
-    output = iterable[0]
-    if len(iterable) == 1:
-        return output
-    for k in iterable[1:]:
-        output += iterable
+def flatten(arr):
+    output = []
+    for item in arr:
+        for k in item:
+            output.append(k)
     return output
 
-abs_path = os.path.dirname(__file__)
-tvpop = "TV-Popularity-Project/"
+def supersplit(arr, minlength = 4):
+    output = sorted(flatten([str(k).split(",") for k in list(set(arr))]))
+    return [k for k in output if len(k) >= minlength]
+
+abs_path = os.path.dirname(__file__)#.replace("\\",'/')
+tvpop = "TV-Popularity-Project"
 largest_folder_index = abs_path.find(tvpop)+len(tvpop)
 largest_folder = abs_path[:largest_folder_index]
 
-tv_df_filename = largest_folder + "Data/data/streaming_titles_clean.csv"
-lm_filename = largest_folder + "Modeling/models/linear_regression.joblib"
+tv_df_filename = largest_folder + "/Data/data/streaming_titles_clean.csv"
+lm_filename = largest_folder + "/Modeling/models/linear_regression.joblib"
 
 tv_df = pd.read_csv(tv_df_filename)
 lm = joblib.load(lm_filename)
 
 genres = tv_df.columns[tv_df.columns.str.startswith('genre.')]
-directors = sorted(([print(str(k).split(", ")) for k in list(set(tv_df['director']))]))
-countries = sorted([str(k) for k in list(set(tv_df['country']))])
+directors = supersplit(tv_df["director"])
+countries = supersplit(tv_df['country'])
 pretty_genre = lambda x: x[6:].replace("_"," ")
 
 app_ui = ui.page_fluid(
