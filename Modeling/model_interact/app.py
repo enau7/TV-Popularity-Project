@@ -14,8 +14,12 @@ def flatten(arr):
     return output
 
 def supersplit(arr, minlength = 4):
-    output = sorted(flatten([str(k).split(",") for k in list(set(arr))]))
-    return [k for k in output if len(k) >= minlength]
+    output = [str(k).split(",") for k in list(set(arr))]
+    output = flatten(output)
+    output = [k for k in output if len(k) >= minlength]
+    output = [k for k in output if k[0].isalpha()]
+    output = sorted(output)
+    return output
 
 abs_path = os.path.dirname(__file__)#.replace("\\",'/')
 tvpop = "TV-Popularity-Project"
