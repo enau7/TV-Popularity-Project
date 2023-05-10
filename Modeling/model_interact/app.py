@@ -27,7 +27,7 @@ largest_folder_index = abs_path.find(tvpop)+len(tvpop)
 largest_folder = abs_path[:largest_folder_index]
 
 tv_df_filename = largest_folder + "/Data/data/streaming_titles_clean.csv"
-lm_filename = largest_folder + "/Modeling/models/linear_regression.joblib"
+lm_filename = largest_folder + "/Modeling/models/beta_regression.joblib"
 
 tv_df = pd.read_csv(tv_df_filename)
 lm = joblib.load(lm_filename)
