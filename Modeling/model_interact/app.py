@@ -5,6 +5,9 @@ import numpy as np
 import joblib
 import sklearn
 import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import ModelHelpers
 
 def flatten(arr):
     output = []
@@ -27,10 +30,10 @@ largest_folder_index = abs_path.find(tvpop)+len(tvpop)
 largest_folder = abs_path[:largest_folder_index]
 
 tv_df_filename = largest_folder + "/Data/data/streaming_titles_clean.csv"
-lm_filename = largest_folder + "/Modeling/models/beta_regression.joblib"
+beta_filename = largest_folder + "/Modeling/models/beta_regression.joblib"
 
 tv_df = pd.read_csv(tv_df_filename)
-lm = joblib.load(lm_filename)
+beta = joblib.load(beta_filename)
 
 genres = tv_df.columns[tv_df.columns.str.startswith('genre.')]
 directors = supersplit(tv_df["director"])
@@ -79,15 +82,14 @@ def server(input, output, session):
         except:
             return "An unexpected error occured."
 
-        pred = lm.predict(model_input)[0]
+        pred = beta.predict(model_input)[0]
 
         return f"Your movie has a predicted score of {round(pred,2)}."
 
     @reactive.Effect
     @reactive.event(input.stop)
     async def _():
-        directors = [1,3,4]
-        #await session.close()
+        await session.close()
 
 
 
