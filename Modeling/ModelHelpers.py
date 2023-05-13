@@ -1,6 +1,7 @@
 import math
 import numpy as np
 from sklearn.linear_model import ElasticNet
+from sklearn.base import BaseEstimator
 
 def columnstartswith(columns, df):
     if type(columns) == str:
@@ -17,6 +18,16 @@ def ProportionScale(X, from_range = (0,100), inverse = False):
     else:
         output = (X-from_range[0])/scale
     return output
+
+class ColumnSelector(BaseEstimator):
+    def __init__(self, columns):
+        self.columns = columns
+
+    def fit(self, X, y = None):
+        return self
+
+    def transform(self, X, y=None):
+        return X[self.columns]
 
 class BetaRegression(ElasticNet):
 
