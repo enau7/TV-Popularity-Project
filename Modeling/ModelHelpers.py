@@ -1,5 +1,7 @@
 import math
 import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import ElasticNet
 from sklearn.base import BaseEstimator
 
@@ -28,17 +30,41 @@ class ColumnSelector(BaseEstimator):
 
     def transform(self, X, y=None):
         return X[self.columns]
+    
+class NumericNAOneHotEncoder(BaseEstimator):
+    def __init__(self):
+        pass
+    
+    def fit(self, X, y = None):
+        return self
+    
+    def transform(self, X, y = None):
+        for item in X.columns:
+            X[item + "_isNA"] = X[item].apply(lambda x: 1 if pd.isna(x) else 0)
+            X[item] = X[item].apply(lambda x: 0 if pd.isna(x) else x)
+        return X.to_numpy()
 
-class BetaRegression(ElasticNet):
+class Printer(BaseEstimator):
+    def __init__(self):
+        pass
+
+    def fit(self, X, y = None):
+        return self
+    
+    def transform(self, X, y = None):
+        print(X)
+        return X
+
+class BetaRegression(LinearRegression):
 
     ''' A fit-transform class extending a linear regression that performs a beta regression.
         Scale the response to have a specified range.
     '''
 
-    def __init__(self, scale = 1, from_range = (0,1), alpha = 1, l1_ratio = 0.5):
+    def __init__(self, scale = 1, from_range = (0,1)):
         self.from_range = from_range
         self.scale = scale
-        super().__init__(alpha = alpha, l1_ratio = l1_ratio)
+        super().__init__()
 
     def fit(self, X, y = None):
         y = np.asarray(y)
