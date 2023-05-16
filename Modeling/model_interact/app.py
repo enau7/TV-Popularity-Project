@@ -29,40 +29,49 @@ tvpop = "TV-Popularity-Project"
 largest_folder_index = abs_path.find(tvpop)+len(tvpop)
 largest_folder = abs_path[:largest_folder_index]
 
-tv_df_filename = largest_folder + "/Data/data/streaming_titles_clean.csv"
-beta_filename = largest_folder + "/Modeling/models/beta_regression.joblib"
+tv_df_filename = largest_folder + "/Data/data/streaming_titles_final.csv"
+score_df_filename = largest_folder + "/Data/data/director_scores.csv"
+model_filename = largest_folder + "/Modeling/models/beta_regression.joblib"
 
 tv_df = pd.read_csv(tv_df_filename)
-beta = joblib.load(beta_filename)
+score_df = pd.read_csv(score_df_filename)
+dir_av_score_dict = dict(zip(score_df["director"],score_df["dir_average_score"]))
+model = joblib.load(model_filename)
 
 genres = tv_df.columns[tv_df.columns.str.startswith('genre.')]
-directors = supersplit(tv_df["director"])
+directors = dir_av_score_dict.keys()
 countries = supersplit(tv_df['country'])
 pretty_genre = lambda x: x[6:].replace("_"," ")
 
 app_ui = ui.page_fluid(
-    ui.h1("Movie Builder and Evaluator"),
+    ui.h1("Movie/Show Builder and Evaluator"),
     ui.input_select(id = "genre",
                     label = "Select a genre:",
                     choices = {item: pretty_genre(item) for item in genres.sort_values()},
                     selectize=True
                     ),
-    ui.input_checkbox(id = "dir_name_or_score",
+    ui.input_checkbox(id="isshow",
+                    label = "Media type"),
+    ui.output_text_verbatim("showtxt"),
+    ui.input_checkbox(id = "by_director",
                       label = "Select by director?"),
-    ui.panel_conditional("! input.dir_name_or_score",
-                         ui.input_numeric(id = "av_dir_score", 
+    ui.panel_conditional("! input.by_director",
+                         ui.input_slider(id = "av_dir_score", 
                                           label = "Average Director Score",
                                           value = 50.0,
                                           min = 0.0,
                                           max = 100.0)),
-    ui.panel_conditional("input.dir_name_or_score",
+    ui.panel_conditional("input.by_director",
                          ui.input_select(id = "director", 
                                          label = "Director",
-                                         choices = directors,
+                                         choices = {x:x for x in directors},
                                          selectize=True)),
+    ui.panel_conditional("input.by_director",
+                         ui.output_text_verbatim("dirscore")),
     ui.input_select(id = "country",
                     label = "Select a release country:",
                     choices = countries,
+                    selected = "United States",
                     selectize = True),
     ui.output_text_verbatim("txt"),
     ui.input_action_button(id = "stop",
@@ -73,16 +82,56 @@ app_ui = ui.page_fluid(
 def server(input, output, session):
     @output
     @render.text
+    def showtxt():
+        if input.isshow():
+            return "Selected: Show"
+        return "Selected: Movie"
+    
+    @output
+    @render.text
+    def dirscore():
+        return str(dir_av_score_dict[input.director()])
+    
+    @output
+    @render.text
     def txt():
-        model_input = tv_df.iloc[:0,:].copy()
+        model_input = tv_df[list(set(tv_df.columns).difference(set(["score"])))].loc[:0].copy()
 
-        model_input.loc[0] = False
-        try:
-            model_input[input.genre()] = True
-        except:
-            return "An unexpected error occured."
+        model_input["title"] = "My Movie"
+        model_input["type"] = "Movie" if not input.isshow() else "TV Show"
+        model_input["duration"] = np.nan
+        model_input["cast_average_score"] = 50
+        #model_input["rating"] =  np.nan
+        model_input["country"] = np.nan
+        model_input["release_year"] = 2023
+        model_input[ModelHelpers.columnstartswith("genre",df=tv_df)] = False
+        # return str(model_input[list(set(model_input.columns).difference(set(["title",
+        #                                                                      "type",
+        #                                                                      "dir_average_score",
+        #                                                                      "cast",
+        #                                                                      "Number_MoviesShows_dir",
+        #                                                                      "Number_MoviesShows_cast",
+        #                                                                      "director",
+        #                                                                      "rating",
+        #                                                                      "description",
+        #                                                                      "cast_average_score",
+        #                                                                      "imdbid",
+        #                                                                      "release_year",
+        #                                                                      "country",
+        #                                                                      "duration",
+        #                                                                      ]+ModelHelpers.columnstartswith("genre",df=tv_df))))])
 
-        pred = beta.predict(model_input)[0]
+        model_input[input.genre()] = True
+
+        dirav = 0
+        if not input.by_director():
+            dirav = dir_av_score_dict[input.director()]
+        else:
+            dirav = input.av_dir_score()
+
+        model_input["dir_average_score"] = 85
+
+        pred = model.predict(model_input)[0]
 
         return f"Your movie has a predicted score of {round(pred,2)}."
 

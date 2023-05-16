@@ -32,7 +32,8 @@ class ColumnSelector(BaseEstimator):
         return X[self.columns]
     
 class NumericNAOneHotEncoder(BaseEstimator):
-    def __init__(self):
+    def __init__(self, na_include=[]):
+        self.na_include = na_include
         pass
     
     def fit(self, X, y = None):
@@ -40,9 +41,9 @@ class NumericNAOneHotEncoder(BaseEstimator):
     
     def transform(self, X, y = None):
         for item in X.columns:
-            X[item + "_isNA"] = X[item].apply(lambda x: 1 if pd.isna(x) else 0)
-            X[item] = X[item].apply(lambda x: 0 if pd.isna(x) else x)
-        return X.to_numpy()
+            X[item + "_isNA"] = X[item].apply(lambda x: 1 if pd.isna(x) or (x in self.na_include) else 0)
+            X[item] = X[item].apply(lambda x: 0 if pd.isna(x) or (x in self.na_include) else x)
+        return X
 
 class Printer(BaseEstimator):
     def __init__(self):
