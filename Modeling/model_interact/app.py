@@ -101,7 +101,7 @@ def server(input, output, session):
         model_input["type"] = "Movie" if not input.isshow() else "TV Show"
         model_input["duration"] = np.nan
         model_input["cast_average_score"] = 50
-        #model_input["rating"] =  np.nan
+        model_input["rating"] =  "NR"
         model_input["country"] = np.nan
         model_input["release_year"] = 2023
         model_input[ModelHelpers.columnstartswith("genre",df=tv_df)] = False
@@ -129,7 +129,7 @@ def server(input, output, session):
         else:
             dirav = input.av_dir_score()
 
-        model_input["dir_average_score"] = 85
+        model_input["dir_average_score"] = dirav
 
         pred = model.predict(model_input)[0]
 
