@@ -1,7 +1,12 @@
 ---
-title: 'TV-Project'
+title: 'TV Show and Movie Popularity Project'
 theme:
   dark: darkly
+format:
+  html:
+    toc: true
+    code-fold: true
+editor: visual
 ---
 ::: panel-tabset
 
@@ -9,16 +14,203 @@ theme:
 website:
     body-header: |
         Abstract:
-#### APP
-App page
-```{python}
+        
+In this data science project, we will analyze a dataset containing information about streaming titles, specifically focusing on TV shows and movies from Netflix. The dataset, which can be found [need links](), provides valuable insights into the popularity and characteristics of different titles available on the streaming platform.
 
-```
+**Problem Statement**  
+
+The streaming services industry has seen rapid growth in recent years and has undoubtedly revolutionized the way we consume content. With numerous platforms offering a vast array of TV shows, it has become increasingly important for creators and streaming platforms to understand what makes a TV show popular. This project aims to explore the Kaggle dataset and uncover key factors that contribute to the popularity of TV shows on streaming platforms through a series of different models.
+
+**Data Collection and Description**
+
+*Variable Description*  
+
+The dataset contains several variables that provide valuable information for our analysis. Here is a brief description of the key variables:
+
+- **`type`**: Indicates whether the show is a TV series or a movie.
+- **`title`**: The title of the TV show.
+- **`director`**: The name of the director(s) of the show.
+- **`cast`**: The names of the main cast members.
+- **`country`**: The countries the show was released in.
+- **`release_year`**: The year when the show was released.
+- **`rating`**: The content rating assigned to the show (TV-14, PG-13, etc.).
+- **`duration`**: The number of seasons (for TV series) or the duration (minutes) of the movie (for movies).
+- **`listed_in`**: The genre(s) or category(s) the show belongs to.
+- **`description`**: A brief summary or description of the show.
+- **`score`**: Rating of the show or movie - scraped from IMDB.
+- **`director_score`**: Calculated score based on the directors of the title.
+
+Together, these variables provide a set of features that allow us to analyze and understand the characteristics that determine the popularity of TV shows. By exploring these variables and their relationships, we can gain insights into the factors that contribute to a show's popularity, like the impact of different genres or countries of origin, and begin to create better shows that more people would watch.
+
+#### Data Preprocessing
+Snippet on how we got the data and the process that we went through when cleaning it. 
+
 #### EDA
-EDA Page
+In this section we will explore and visualize our dataset to gain a better understanding of what we are working with, identify any obvious patterns, correlations, or trends.
+```{r}
+data <- read.csv("/Users/roshanmehta/Documents/GitHub/TV-Popularity-Project/Data/data/streaming_titles_clean.csv")
+```
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = r.data
+
+print("The number of rows in the data set is " + str(len(data)))
+data.head()
+```
+```{python}
+data.isna().sum(); print(data.shape)
+```
+
+```{python}
+import seaborn as sns
+sns.countplot(x=data["type"])
+```
+
+```{python}
+# 1. Line Chart of the Number of Titles Released per Year
+
+# Group data by year and count number of titles
+counts = data.groupby("release_year")["title"].count()
+
+# Create line chart
+plt.figure(figsize=(20,10))
+plt.plot(counts.index, counts.values)
+
+# Add labels and title
+plt.xlabel("Year")
+plt.ylabel("Number of Titles Released")
+plt.title("Number of Titles Released per Year")
+
+# Display chart
+plt.show();
+```
+
+```{python}
+# 2. Histogram of the Distribution of Content Ratings
+
+# Create histogram of content ratings
+plt.figure(figsize=(20,10))
+plt.hist(data["rating"].dropna(), bins=10)
+
+# Add labels and title
+plt.xlabel("Content Rating")
+plt.xticks(rotation=45)
+plt.ylabel("Frequency")
+plt.title("Distribution of Content Ratings")
+
+# Display chart
+plt.show();
+```
+
+```{python}
+# 3. Bar Chart of the Number of Titles per Country (count > 10)
+
+# Extract first country from country column
+chart = data.copy()
+chart["country"] = chart["country"].str.split(", ").str[0]
+
+# Group data by country and count number of titles
+counts = chart.groupby("country")["title"].count()
+counts = counts[counts > 10].sort_values(ascending=False)
+
+# Create bar chart
+plt.figure(figsize=(20,10))
+plt.bar(counts.index, counts.values)
+
+# Add labels and title
+plt.xlabel("Country")
+plt.xticks(rotation=90)
+plt.ylabel("Number of Titles")
+plt.title("Number of Titles per Country")
+
+# Display chart
+plt.show()
+```
+
+```{python}
+# 4. Movie and Rating Scatter Plot
+
+# Filter out TV shows and missing ratings
+movies = data[(data["type"] == "Movie") & (data["score"].notnull())]
+
+# Create scatter plot of IMDB rating vs. runtime
+plt.figure(figsize=(20,10))
+plt.scatter(movies["score"], movies["duration"], alpha=0.5)
+
+# Add labels and title
+plt.xlabel("IMDB Rating")
+plt.ylabel("Runtime (minutes)")
+plt.title("IMDB Rating vs. Runtime for Movies on Streaming Services")
+
+# Display chart
+plt.show()
+```
+
+```{python}
+# 5. TV Show and Rating Scatter Plot
+
+# Filter out Movies and missing ratings
+tv = data[(data["type"] == "TV Show") & (data["score"].notnull())]
+
+# Create scatter plot of IMDB rating vs. runtime
+plt.figure(figsize=(20,10))
+plt.scatter(tv["score"], tv["duration"], alpha=0.5)
+
+# Add labels and title
+plt.xlabel("IMDB Rating")
+plt.ylabel("Runtime (seasons)")
+plt.title("IMDB Rating vs. Runtime for Movies on Streaming Services")
+
+# Display chart
+plt.show()
+```
+
+```{python}
+# 6. Top 15 Genres By Number of Titles
+
+# Get list of genre columns
+genre_cols = [col for col in data.columns if col.startswith("genre")]
+
+# Sum the number of true values in each genre column to get the total number of titles for each genre
+genre_counts = data[genre_cols].sum()#.sort_values(ascending=False)
+
+# Get the top 10 genres by number of titles
+top_genres = genre_counts[:15]
+
+# Remove "genre." from the genre names in the x-axis labels
+labels = [col.replace("genre.", "") for col in top_genres.index]
+
+# Create bar chart
+plt.figure(figsize=(20, 10))
+plt.bar(labels, top_genres.values, color='purple')
+
+# Add labels and title
+plt.xlabel("Genre")
+plt.xticks(rotation=45, ha='right')
+plt.ylabel("Number of Titles")
+plt.title("Top 10 Genres by Number of Titles")
+
+# Display chart
+plt.show()
+```
+Need to go back and fix this last one, does not look the same as it is in the data_visualization.ipynb for some reason. 
+
+Also need to go back and figure out how to show only the charts and hide the other unnecessary output.
+
+#### APP
+App page (need to embed app here for use)
 
 #### Methods
 Methods Page
+
+#### Results
+Results Page
+
+#### Discussion and Interpretation
+Discussion and Interpretation Page
 
 
 :::
