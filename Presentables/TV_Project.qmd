@@ -1,0 +1,24 @@
+---
+title: 'TV-Project'
+theme:
+  dark: darkly
+---
+::: panel-tabset
+
+#### Home 
+website:
+    body-header: |
+        Abstract:
+#### APP
+App page
+```{python}
+
+```
+#### EDA
+EDA Page
+
+#### Methods
+Methods Page
+
+
+:::
