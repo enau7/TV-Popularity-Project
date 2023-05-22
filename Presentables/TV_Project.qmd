@@ -11,9 +11,7 @@ editor: visual
 ::: panel-tabset
 
 #### Home 
-website:
-    body-header: |
-        Abstract:
+**Abstract**
         
 In this data science project, we will analyze a dataset containing information about streaming titles, specifically focusing on TV shows and movies from Netflix. The dataset, which can be found [need links](), provides valuable insights into the popularity and characteristics of different titles available on the streaming platform.
 
