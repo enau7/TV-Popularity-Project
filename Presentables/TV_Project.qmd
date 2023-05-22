@@ -47,15 +47,15 @@ Snippet on how we got the data and the process that we went through when cleanin
 
 #### EDA
 In this section we will explore and visualize our dataset to gain a better understanding of what we are working with, identify any obvious patterns, correlations, or trends.
-```{r}
-data <- read.csv("/Users/roshanmehta/Documents/GitHub/TV-Popularity-Project/Data/data/streaming_titles_clean.csv")
+```{python}
+import pandas as pd
+data = pd.read_csv("../Data/data/streaming_titles_final.csv")
 ```
 
 ```{python}
-import pandas as pd
 import matplotlib.pyplot as plt
 
-data = r.data
+data = data
 
 print("The number of rows in the data set is " + str(len(data)))
 data.head()
