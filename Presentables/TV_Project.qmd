@@ -41,7 +41,16 @@ The dataset contains several variables that provide valuable information for our
 Together, these variables provide a set of features that allow us to analyze and understand the characteristics that determine the popularity of TV shows. By exploring these variables and their relationships, we can gain insights into the factors that contribute to a show's popularity, like the impact of different genres or countries of origin, and begin to create better shows that more people would watch.
 
 #### Data Preprocessing
-Snippet on how we got the data and the process that we went through when cleaning it. 
+**Source**
+We combined four datasets found on kaggle to get a comprehensive dataset of movies and TV shows. 
+
+[Disney+](https://www.kaggle.com/datasets/shivamb/disney-movies-and-tv-shows) 
+
+[Hulu](https://www.kaggle.com/datasets/shivamb/hulu-movies-and-tv-shows) 
+
+[Amazon Prime](https://www.kaggle.com/datasets/shivamb/amazon-prime-movies-and-tv-shows)
+
+[Netflix](https://www.kaggle.com/datasets/shivamb/netflix-shows)
 
 #### EDA
 In this section we will explore and visualize our dataset to gain a better understanding of what we are working with, identify any obvious patterns, correlations, or trends.
@@ -83,7 +92,7 @@ plt.ylabel("Number of Titles Released")
 plt.title("Number of Titles Released per Year")
 
 # Display chart
-plt.show();
+plt.show()
 ```
 
 ```{python}
@@ -100,7 +109,7 @@ plt.ylabel("Frequency")
 plt.title("Distribution of Content Ratings")
 
 # Display chart
-plt.show();
+plt.show()
 ```
 
 ```{python}
