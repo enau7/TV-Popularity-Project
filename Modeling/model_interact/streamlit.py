@@ -15,7 +15,7 @@ if movie:
         ('James Cameron','Wes Anderson','Christopher Nolan'))
         st.write('You selected:', dir_select,'as your director')
     else: 
-        score  = st.slider(
+        score_director  = st.slider(
     "Average Score of the Director?", 0, 100, 50)
     cast = st.checkbox('Cast')
     if cast: 
@@ -26,7 +26,7 @@ if movie:
 
         st.write('You selected:', cast_select)
     else:
-                score  = st.slider(
+                score_cast  = st.slider(
     "Average Score of the Cast?", 0, 100, 50)
 
     
@@ -42,7 +42,7 @@ if show:
         ('James Cameron','Wes Anderson','Christopher Nolan'))
         st.write('You selected:', dir_select,'as your director')
     else: 
-        score  = st.slider(
+        score_director  = st.slider(
     "Average Score of the Director?", 0, 100, 50)
     'Would you like to select cast members or give an average score?'
     cast = st.checkbox('Cast')
@@ -54,6 +54,6 @@ if show:
 
         st.write('You selected:', cast_select)
     else:
-                score  = st.slider(
+                score_cast  = st.slider(
     "Average Score of the Cast?", 0, 100, 50)
 
