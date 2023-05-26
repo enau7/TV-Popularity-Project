@@ -53,6 +53,12 @@ We combined four datasets found on kaggle to get a comprehensive dataset of movi
 
 [Netflix](https://www.kaggle.com/datasets/shivamb/netflix-shows)
 
+**Cleaning**
+ How to address nulls? 
+
+**Train Split**
+talk to colton
+
 #### EDA
 In this section we will explore and visualize our dataset to gain a better understanding of what we are working with, identify any obvious patterns, correlations, or trends.
 ```{python}
