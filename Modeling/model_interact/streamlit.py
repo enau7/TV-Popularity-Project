@@ -35,11 +35,14 @@ model_filename = largest_folder + "/Modeling/models/beta_regression.joblib"
 
 tv_df = pd.read_csv(tv_df_filename)
 score_df = pd.read_csv(score_df_filename)
+cast_df = pd.read_csv('/Users/christianmatthewgarduno/Documents/GitHub/TV-Popularity-Project/Data/director_cast_avg.csv')
 dir_av_score_dict = dict(zip(score_df["director"],score_df["dir_average_score"]))
+cast_av_score_dict = dict(zip(cast_df["cast"],cast_df["cast_average_score"]))
 model = joblib.load(model_filename)
 
 genres = tv_df.columns[tv_df.columns.str.startswith('genre.')]
 directors = dir_av_score_dict.keys()
+cast_members = cast_av_score_dict.keys()
 countries = supersplit(tv_df['country'])
 pretty_genre = lambda x: x[6:].replace("_"," ")
 genre_dict = dict(zip([pretty_genre(x) for x in genres],genres))
@@ -75,8 +78,7 @@ if movie or show:
     if cast: 
         'Select your cast members.'
         cast_select = st.multiselect(
-        'Select your cast members',
-        ['Charlie Day', 'Alexandra Daddario','Tom Cruise', 'Jason Segel', 'Ryan Reynolds'])
+        'Select your cast members',cast_members)
 
         st.write('You selected:', cast_select)
     else:
