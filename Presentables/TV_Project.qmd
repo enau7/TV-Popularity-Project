@@ -13,7 +13,7 @@ editor: visual
 #### Home 
 **Abstract**
         
-In this data science project, we will analyze a dataset containing information about streaming titles, specifically focusing on TV shows and movies from Netflix. The dataset, which can be found [need links](), provides valuable insights into the popularity and characteristics of different titles available on the streaming platform.
+In this data science project, we will analyze a dataset containing information about streaming titles, specifically focusing on TV shows and movies from Netflix. The dataset, which can be found [need links](../Data Preprocessing.qmd), provides valuable insights into the popularity and characteristics of different titles available on the streaming platform.
 
 **Problem Statement**  
 
@@ -42,6 +42,7 @@ Together, these variables provide a set of features that allow us to analyze and
 
 #### Data Preprocessing
 **Source**
+
 We combined four datasets found on kaggle to get a comprehensive dataset of movies and TV shows. 
 
 [Disney+](https://www.kaggle.com/datasets/shivamb/disney-movies-and-tv-shows) 

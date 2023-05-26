@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p><strong>Abstract</strong></p>
-<p>In this data science project, we will analyze a dataset containing information about streaming titles, specifically focusing on TV shows and movies from Netflix. The dataset, which can be found <a href="">need links</a>, provides valuable insights into the popularity and characteristics of different titles available on the streaming platform.</p>
+<p>In this data science project, we will analyze a dataset containing information about streaming titles, specifically focusing on TV shows and movies from Netflix. The dataset, which can be found <a href="../Data%20Preprocessing.qmd">need links</a>, provides valuable insights into the popularity and characteristics of different titles available on the streaming platform.</p>
 <p><strong>Problem Statement</strong></p>
 <p>The streaming services industry has seen rapid growth in recent years and has undoubtedly revolutionized the way we consume content. With numerous platforms offering a vast array of TV shows, it has become increasingly important for creators and streaming platforms to understand what makes a TV show popular. This project aims to explore the Kaggle dataset and uncover key factors that contribute to the popularity of TV shows on streaming platforms through a series of different models.</p>
 <p><strong>Data Collection and Description</strong></p>
@@ -129,7 +129,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Together, these variables provide a set of features that allow us to analyze and understand the characteristics that determine the popularity of TV shows. By exploring these variables and their relationships, we can gain insights into the factors that contribute to a show’s popularity, like the impact of different genres or countries of origin, and begin to create better shows that more people would watch.</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><strong>Source</strong> We combined four datasets found on kaggle to get a comprehensive dataset of movies and TV shows.</p>
+<p><strong>Source</strong></p>
+<p>We combined four datasets found on kaggle to get a comprehensive dataset of movies and TV shows.</p>
 <p><a href="https://www.kaggle.com/datasets/shivamb/disney-movies-and-tv-shows">Disney+</a></p>
 <p><a href="https://www.kaggle.com/datasets/shivamb/hulu-movies-and-tv-shows">Hulu</a></p>
 <p><a href="https://www.kaggle.com/datasets/shivamb/amazon-prime-movies-and-tv-shows">Amazon Prime</a></p>
@@ -157,7 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>The number of rows in the data set is 4985</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -331,7 +332,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span>data[<span class="st">"type"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>&lt;AxesSubplot: xlabel='type', ylabel='count'&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
