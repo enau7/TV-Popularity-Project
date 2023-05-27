@@ -30,14 +30,15 @@ largest_folder_index = abs_path.find(tvpop)+len(tvpop)
 largest_folder = abs_path[:largest_folder_index]
 
 tv_df_filename = largest_folder + "/Data/data/streaming_titles_final.csv"
-score_df_filename = largest_folder + "/Data/data/director_scores.csv"
+dir_score_df_filename = largest_folder + "/Data/data/director_scores.csv"
 model_filename = largest_folder + "/Modeling/models/beta_regression.joblib"
+cast_score_df_filename = largest_folder + "/Data/director_cast_avg.csv"
 
 tv_df = pd.read_csv(tv_df_filename)
-score_df = pd.read_csv(score_df_filename)
-cast_df = pd.read_csv('/Users/christianmatthewgarduno/Documents/GitHub/TV-Popularity-Project/Data/director_cast_avg.csv')
-dir_av_score_dict = dict(zip(score_df["director"],score_df["dir_average_score"]))
-cast_av_score_dict = dict(zip(cast_df["cast"],cast_df["cast_average_score"]))
+dir_score_df = pd.read_csv(dir_score_df_filename)
+cast_score_df = pd.read_csv(cast_score_df_filename)
+dir_av_score_dict = dict(zip(dir_score_df["director"],dir_score_df["dir_average_score"]))
+cast_av_score_dict = dict(zip(cast_score_df["cast"],cast_score_df["cast_average_score"]))
 model = joblib.load(model_filename)
 
 genres = tv_df.columns[tv_df.columns.str.startswith('genre.')]
@@ -58,6 +59,9 @@ mediatype = None
 if movie:
     mediatype = "Movie"
 if show:
+    if movie:
+        st.write("Please Select only one media type.")
+        exit()
     mediatype = "Show"
 
 if movie or show:
