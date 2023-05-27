@@ -1,11 +1,11 @@
 import pandas as pd
 import numpy as np
-import joblib
-import sklearn
+#import joblib
+#import sklearn
 import os
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-import ModelHelpers
+#import ModelHelpers
 
 def flatten(arr):
     output = []
@@ -37,7 +37,7 @@ dir_score_df = pd.read_csv(dir_score_df_filename)
 cast_score_df = pd.read_csv(cast_score_df_filename)
 dir_av_score_dict = dict(zip(dir_score_df["director"],dir_score_df["dir_average_score"]))
 cast_av_score_dict = dict(zip(cast_score_df["cast"],cast_score_df["cast_average_score"]))
-model = joblib.load(model_filename)
+# model = joblib.load(model_filename)
 
 genres = tv_df.columns[tv_df.columns.str.startswith('genre.')]
 directors = dir_av_score_dict.keys()
