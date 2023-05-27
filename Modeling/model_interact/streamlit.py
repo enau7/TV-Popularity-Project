@@ -1,3 +1,5 @@
+import streamlit as st
+
 import pandas as pd
 import numpy as np
 #import joblib
@@ -50,7 +52,6 @@ genre_dict = dict(zip([pretty_genre(x) for x in genres],genres))
 
 ## STREAMLIT PORTION
 
-import streamlit as st
 'Would you like to make a Movie or TV Show?'
 movie = st.checkbox('Movie')
 show = st.checkbox('Show')
