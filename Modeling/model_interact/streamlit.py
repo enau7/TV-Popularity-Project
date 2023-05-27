@@ -32,6 +32,8 @@ dir_score_df_filename = largest_folder + "/Data/data/director_scores.csv"
 model_filename = largest_folder + "/Modeling/models/beta_regression.joblib"
 cast_score_df_filename = largest_folder + "/Data/data/cast_scores.csv"
 
+st.write(tv_df_filename)
+
 tv_df = pd.read_csv(tv_df_filename)
 dir_score_df = pd.read_csv(dir_score_df_filename)
 cast_score_df = pd.read_csv(cast_score_df_filename)
