@@ -2,12 +2,12 @@ import streamlit as st
 
 import pandas as pd
 import numpy as np
-#import joblib
-#import sklearn
+import joblib
+import sklearn
 import os
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-#import ModelHelpers
+import ModelHelpers
 
 def flatten(arr):
     output = []
@@ -27,6 +27,8 @@ def supersplit(arr, minlength = 4):
 abs_path = os.path.dirname(__file__)#.replace("\\",'/')
 tvpop = "TV-Popularity-Project"
 largest_folder_index = abs_path.find(tvpop)+len(tvpop)
+if abs_path.find(tvpop) == -1:
+    largest_folder_index = abs_path.find(tvpop.lower())+len(tvpop)
 largest_folder = abs_path[:largest_folder_index]
 
 tv_df_filename = largest_folder + "/Data/data/streaming_titles_final.csv"
@@ -34,14 +36,14 @@ dir_score_df_filename = largest_folder + "/Data/data/director_scores.csv"
 model_filename = largest_folder + "/Modeling/models/beta_regression.joblib"
 cast_score_df_filename = largest_folder + "/Data/data/cast_scores.csv"
 
-st.write(tv_df_filename)
-
 tv_df = pd.read_csv(tv_df_filename)
 dir_score_df = pd.read_csv(dir_score_df_filename)
 cast_score_df = pd.read_csv(cast_score_df_filename)
 dir_av_score_dict = dict(zip(dir_score_df["director"],dir_score_df["dir_average_score"]))
 cast_av_score_dict = dict(zip(cast_score_df["cast"],cast_score_df["cast_average_score"]))
-# model = joblib.load(model_filename)
+model = joblib.load(model_filename)
+
+st.write(model)
 
 genres = tv_df.columns[tv_df.columns.str.startswith('genre.')]
 directors = dir_av_score_dict.keys()
@@ -50,7 +52,7 @@ countries = supersplit(tv_df['country'])
 pretty_genre = lambda x: x[6:].replace("_"," ")
 genre_dict = dict(zip([pretty_genre(x) for x in genres],genres))
 
-## STREAMLIT PORTION
+# STREAMLIT PORTION
 
 'Would you like to make a Movie or TV Show?'
 movie = st.checkbox('Movie')
@@ -89,4 +91,46 @@ if movie or show:
     else:
                 score_cast  = st.slider(
     "Average Score of the Cast?", 0, 100, 50)
+                
+    ## MODEL STUFF
+
+    model_input = tv_df[list(set(tv_df.columns).difference(set(["score"])))].loc[:0].copy()
+
+    model_input["title"] = "My Movie"
+    model_input["type"] = "Movie" if not input.isshow() else "TV Show"
+    model_input["duration"] = np.nan
+    model_input["cast_average_score"] = 50
+    model_input["rating"] =  "NR"
+    model_input["country"] = np.nan
+    model_input["release_year"] = 2023
+    model_input[ModelHelpers.columnstartswith("genre",df=tv_df)] = False
+    # return str(model_input[list(set(model_input.columns).difference(set(["title",
+    #                                                                      "type",
+    #                                                                      "dir_average_score",
+    #                                                                      "cast",
+    #                                                                      "Number_MoviesShows_dir",
+    #                                                                      "Number_MoviesShows_cast",
+    #                                                                      "director",
+    #                                                                      "rating",
+    #                                                                      "description",
+    #                                                                      "cast_average_score",
+    #                                                                      "imdbid",
+    #                                                                      "release_year",
+    #                                                                      "country",
+    #                                                                      "duration",
+    #                                                                      ]+ModelHelpers.columnstartswith("genre",df=tv_df))))])
+
+    model_input[input.genre()] = True
+
+    dirav = 0
+    if not input.by_director():
+        dirav = dir_av_score_dict[input.director()]
+    else:
+        dirav = input.av_dir_score()
+
+    model_input["dir_average_score"] = dirav
+
+    pred = model.predict(model_input)[0]
+
+    st.write(f"Your movie has a predicted score of {round(pred,2)}.")
 
