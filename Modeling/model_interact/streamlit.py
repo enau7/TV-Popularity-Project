@@ -27,6 +27,8 @@ def supersplit(arr, minlength = 4):
 abs_path = os.path.dirname(__file__)#.replace("\\",'/')
 tvpop = "TV-Popularity-Project"
 largest_folder_index = abs_path.find(tvpop)+len(tvpop)
+if abs_path.find(tvpop) == -1:
+    largest_folder_index = abs_path.find(tvpop.lower())+len(tvpop)
 largest_folder = abs_path[:largest_folder_index]
 
 tv_df_filename = largest_folder + "/Data/data/streaming_titles_final.csv"
