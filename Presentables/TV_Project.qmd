@@ -231,7 +231,11 @@ plt.show()
 Also need to go back and figure out how to show only the charts and hide the other unnecessary output.
 
 #### App
-
+<iframe
+  src="https://tv-popularity-model.streamlit.app//?embed=true"
+  height="450"
+  style="width:100%;border:none;"
+></iframe>
 App page (need to embed app here for use)
 
 #### Methods
