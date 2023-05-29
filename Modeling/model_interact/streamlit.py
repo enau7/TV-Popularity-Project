@@ -91,4 +91,46 @@ if movie or show:
     else:
                 score_cast  = st.slider(
     "Average Score of the Cast?", 0, 100, 50)
+                
+    ## MODEL STUFF
+
+    model_input = tv_df[list(set(tv_df.columns).difference(set(["score"])))].loc[:0].copy()
+
+    model_input["title"] = "My Movie"
+    model_input["type"] = "Movie" if not input.isshow() else "TV Show"
+    model_input["duration"] = np.nan
+    model_input["cast_average_score"] = 50
+    model_input["rating"] =  "NR"
+    model_input["country"] = np.nan
+    model_input["release_year"] = 2023
+    model_input[ModelHelpers.columnstartswith("genre",df=tv_df)] = False
+    # return str(model_input[list(set(model_input.columns).difference(set(["title",
+    #                                                                      "type",
+    #                                                                      "dir_average_score",
+    #                                                                      "cast",
+    #                                                                      "Number_MoviesShows_dir",
+    #                                                                      "Number_MoviesShows_cast",
+    #                                                                      "director",
+    #                                                                      "rating",
+    #                                                                      "description",
+    #                                                                      "cast_average_score",
+    #                                                                      "imdbid",
+    #                                                                      "release_year",
+    #                                                                      "country",
+    #                                                                      "duration",
+    #                                                                      ]+ModelHelpers.columnstartswith("genre",df=tv_df))))])
+
+    model_input[input.genre()] = True
+
+    dirav = 0
+    if not input.by_director():
+        dirav = dir_av_score_dict[input.director()]
+    else:
+        dirav = input.av_dir_score()
+
+    model_input["dir_average_score"] = dirav
+
+    pred = model.predict(model_input)[0]
+
+    st.write(f"Your movie has a predicted score of {round(pred,2)}.")
 
