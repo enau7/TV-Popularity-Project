@@ -45,8 +45,8 @@ class NumericNAOneHotEncoder(BaseEstimator):
         if self.select == None:
             a = X.columns
         for item in a:
-            X[item + "_isNA"] = X[item].apply(lambda x: 1 if pd.isna(x) or (x in self.na_include) else 0)
-            X[item] = X[item].apply(lambda x: 0 if pd.isna(x) or (x in self.na_include) else x)
+            X.loc[:,item + "_isNA"] = X[item].apply(lambda x: 1 if pd.isna(x) or (x in self.na_include) else 0)
+            X.loc[:,item] = X[item].apply(lambda x: 0 if pd.isna(x) or (x in self.na_include) else x)
         return X
 
 class Printer(BaseEstimator):
