@@ -84,14 +84,14 @@ else:
 
 model_input = tv_df[list(set(tv_df.columns).difference(set(["score"])))].loc[:0].copy()
 
-model_input["title"] = "My Movie"
-model_input["type"] = mediatype
-#model_input["duration"] = np.nan
-model_input["cast_average_score"] = 50
-model_input["rating"] =  "NR"
-model_input["country"] = np.nan
-model_input["release_year"] = 2023
-model_input[ModelHelpers.columnstartswith("genre",df=tv_df)] = False
+# model_input["title"] = "My Movie"
+# model_input["type"] = mediatype
+# model_input["duration"] = np.nan
+# model_input["cast_average_score"] = 50
+# model_input["rating"] =  "NR"
+# model_input["country"] = np.nan
+# model_input["release_year"] = 2023
+# model_input[ModelHelpers.columnstartswith("genre",df=tv_df)] = False
 # return str(model_input[list(set(model_input.columns).difference(set(["title",
 #                                                                      "type",
 #                                                                      "dir_average_score",
@@ -108,15 +108,15 @@ model_input[ModelHelpers.columnstartswith("genre",df=tv_df)] = False
 #                                                                      "duration",
 #                                                                      ]+ModelHelpers.columnstartswith("genre",df=tv_df))))])
 
-model_input[genre_dict[option]] = True
+# model_input[genre_dict[option]] = True
 
-dirav = 0
-if director:
-    dirav = dir_av_score_dict[dir_select]
-else:
-    dirav = score_director
+# dirav = 0
+# if director:
+#     dirav = dir_av_score_dict[dir_select]
+# else:
+#     dirav = score_director
 
-model_input["dir_average_score"] = dirav
+# model_input["dir_average_score"] = dirav
 
 pred = model.predict(model_input)[0]
 
