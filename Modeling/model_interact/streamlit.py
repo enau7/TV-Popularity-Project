@@ -120,6 +120,6 @@ model_input["dir_average_score"] = dirav
 
 pred = model.predict(model_input)[0]
 
-st.subheader(f"Your movie has a predicted score of:")
+st.write(f"Your movie has a predicted score of:")
 st.header(round(pred,2))
 
