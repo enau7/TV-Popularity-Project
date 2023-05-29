@@ -32,15 +32,20 @@ class ColumnSelector(BaseEstimator):
         return X[self.columns]
     
 class NumericNAOneHotEncoder(BaseEstimator):
-    def __init__(self):
+    def __init__(self, select = None, na_include = []):
+        self.select = select
+        self.na_include = na_include
         pass
     
     def fit(self, X, y = None):
         return self
     
     def transform(self, X, y = None):
-        for item in X.columns:
-            X[item + "_isNA"] = X[item].apply(lambda x: 1 if pd.isna(x) else 0)
+        a = self.select
+        if self.select == None:
+            a = X.columns
+        for item in a:
+            X[item + "_isNA"] = X[item].apply(lambda x: 1 if pd.isna(x) or (x in self.na_include) else 0)
             X[item] = X[item].apply(lambda x: 0 if pd.isna(x) or (x in self.na_include) else x)
         return X
 
@@ -78,4 +83,7 @@ class BetaRegression(LinearRegression):
         return ProportionScale(y,from_range=self.from_range,inverse=True)
 
 if __name__ == "__main__":
+    df = pd.DataFrame()
+    df["Col1"] = [1,2,3,4,np.nan,5,6]
+    print(NumericNAOneHotEncoder().transform(df))
     pass
