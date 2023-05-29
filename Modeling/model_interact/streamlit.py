@@ -86,7 +86,7 @@ model_input = tv_df[list(set(tv_df.columns).difference(set(["score"])))].loc[:0]
 
 model_input["title"] = "My Movie"
 model_input["type"] = mediatype
-model_input["duration"] = np.nan
+#model_input["duration"] = np.nan
 model_input["cast_average_score"] = 50
 model_input["rating"] =  "NR"
 model_input["country"] = np.nan
