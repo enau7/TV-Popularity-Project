@@ -54,7 +54,7 @@ genre_dict = dict(zip([pretty_genre(x) for x in genres],genres))
 
 # STREAMLIT PORTION
 
-mediatype = st.selectbox(label = 'Would you like to make a Movie or TV Show?', options=["Movie","TV Show"])
+mediatype = st.radio(label = 'Would you like to make a Movie or TV Show?', options=["Movie","TV Show"])
 
 option = st.selectbox(
 'Select the genre of your {}.'.format(mediatype.lower()),
