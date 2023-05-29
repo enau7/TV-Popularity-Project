@@ -97,7 +97,7 @@ if movie or show:
     model_input = tv_df[list(set(tv_df.columns).difference(set(["score"])))].loc[:0].copy()
 
     model_input["title"] = "My Movie"
-    model_input["type"] = "Movie" if not input.isshow() else "TV Show"
+    model_input["type"] = "Movie" if movie else "TV Show"
     model_input["duration"] = np.nan
     model_input["cast_average_score"] = 50
     model_input["rating"] =  "NR"
@@ -120,13 +120,13 @@ if movie or show:
     #                                                                      "duration",
     #                                                                      ]+ModelHelpers.columnstartswith("genre",df=tv_df))))])
 
-    model_input[input.genre()] = True
+    model_input[genre_dict[option]] = True
 
     dirav = 0
-    if not input.by_director():
-        dirav = dir_av_score_dict[input.director()]
+    if director:
+        dirav = dir_av_score_dict[dir_select]
     else:
-        dirav = input.av_dir_score()
+        dirav = score_director
 
     model_input["dir_average_score"] = dirav
 
