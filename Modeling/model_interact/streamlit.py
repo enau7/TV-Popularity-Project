@@ -107,7 +107,7 @@ if advanced:
     else:
         duration = st.number_input("Choose the number of seasons for the show:",1,15,1)
             
-    year = st.number_input("Choose the release year:", 2023, 1900, -1)
+    year = st.number_input("Choose the release year:", 2023, 1900, 1)
 ## MODEL STUFF
 
 model_input = tv_df[list(set(tv_df.columns).difference(set(["score"])))].loc[:0].copy()
