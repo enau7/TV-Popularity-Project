@@ -69,8 +69,8 @@ if director:
     dir_select = st.selectbox(
     'Select a Director',
     directors)
-    st.write('You selected:', dir_select,'as your director')
     score_director = dir_av_score_dict[dir_select]
+    st.write('{} has an average score of {}'.format(dir_select, score_director))
 else: 
     score_director  = st.slider(
 "Average Score of the Director?", 0, 100, 50)
