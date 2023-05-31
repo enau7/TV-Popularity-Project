@@ -77,13 +77,15 @@ else:
 cast = st.checkbox('Cast')
 if cast: 
     'Select your cast members.'
-    cast_select = st.multiselect(
-    'Select your cast members',cast_members)
 
-    st.write('You selected:', cast_select)
+    cast_select = st.multiselect(
+    'Select your cast members',cast_members, label_visibility='hidden')
+
     score_cast = np.mean([cast_av_score_dict[k] for k in cast_select])
+    
+    st.write('{} has an average score of {}'.format(cast_select,score_cast))
 else:
-            score_cast  = st.slider(
+    score_cast  = st.slider(
 "Average Score of the Cast?", 0, 100, 50)
             
 ## MODEL STUFF
