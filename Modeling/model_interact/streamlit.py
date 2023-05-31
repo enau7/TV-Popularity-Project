@@ -101,9 +101,9 @@ if advanced:
     country = st.selectbox("Select the country of production:",
                  tv_df["country"].unique())
     if mediatype == "Movie":
-        duration = st.slider("Choose the duration of the movie:",0,180,1)
+        duration = st.slider("Choose the duration of the movie:",10,180,10)
     else:
-        duration = st.number_input("Choose the number of seasons for the show:",0,15,1)
+        duration = st.number_input("Choose the number of seasons for the show:",1,15,1)
             
 ## MODEL STUFF
 
