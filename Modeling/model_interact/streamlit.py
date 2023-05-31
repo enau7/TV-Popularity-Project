@@ -54,11 +54,14 @@ genre_dict = dict(zip([pretty_genre(x) for x in genres],genres))
 
 # STREAMLIT PORTION
 
-mediatype = st.radio(label = 'Would you like to make a Movie or TV Show?', options=["Movie","TV Show"])
+mediatype = st.radio(label = 'Would you like to make a movie or tv show?', options=["Movie","TV Show"])
+
+st.write('Select the genre of your {}.'.format(mediatype.lower()))
 
 option = st.selectbox(
-'Select the genre of your {}.'.format(mediatype.lower()),
-sorted(genre_dict.keys()))
+    'Genre of media:',
+    sorted(genre_dict.keys()),
+    label_visibility=False)
 
 'Would you like to assign a director or give an average score?'
 director = st.checkbox('Director')
@@ -92,7 +95,7 @@ model_input["type"] = mediatype
 model_input["duration"] = np.nan
 model_input["cast_average_score"] = score_cast
 model_input["dir_average_score"] = score_director
-model_input["rating"] = "NR"
+model_input["rating"] = "PG-13"
 # model_input["country"] = np.nan ?? GIVES PROBLEMS
 model_input["release_year"] = 2023
 model_input[ModelHelpers.columnstartswith("genre",df=tv_df)] = False
@@ -115,6 +118,6 @@ model_input[genre_dict[option]] = True
 
 pred = model.predict(model_input)[0]
 
-st.write(f"Your movie has a predicted score of:")
+st.write(f"Your {mediatype.lower()} has a predicted score of:")
 st.header(round(pred,2))
 
