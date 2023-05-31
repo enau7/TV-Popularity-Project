@@ -93,18 +93,21 @@ advanced = st.checkbox("Advanced options")
 rating = "PG-13"
 country = "United States"
 duration = np.nan
+year = 2023
 
 if advanced:
     rating = st.selectbox("Select the audience rating:",
-                 tv_df["rating"].unique()
+                 sorted(list(set(tv_df["rating"]).difference(np.nan)))
     )
     country = st.selectbox("Select the country of production:",
-                 tv_df["country"].unique())
+                 sorted(list(set(tv_df["country"]).difference(np.nan)))
+    )
     if mediatype == "Movie":
         duration = st.slider("Choose the duration of the movie:",10,180,10)
     else:
         duration = st.number_input("Choose the number of seasons for the show:",1,15,1)
             
+    year = st.number_input("Choose the release year:", 2023, 1900, -1)
 ## MODEL STUFF
 
 model_input = tv_df[list(set(tv_df.columns).difference(set(["score"])))].loc[:0].copy()
@@ -116,7 +119,7 @@ model_input["cast_average_score"] = score_cast
 model_input["dir_average_score"] = score_director
 model_input["rating"] = rating
 model_input["country"] = country
-model_input["release_year"] = 2023
+model_input["release_year"] = year
 model_input[ModelHelpers.columnstartswith("genre",df=tv_df)] = False
 model_input[genre_dict[option]] = True
 # return str(model_input[list(set(model_input.columns).difference(set(["title",
