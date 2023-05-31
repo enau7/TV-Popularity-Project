@@ -111,11 +111,11 @@ model_input = tv_df[list(set(tv_df.columns).difference(set(["score"])))].loc[:0]
 
 model_input["title"] = "My Movie"
 model_input["type"] = mediatype
-model_input["duration"] = np.nan
+model_input["duration"] = duration
 model_input["cast_average_score"] = score_cast
 model_input["dir_average_score"] = score_director
 model_input["rating"] = rating
-# model_input["country"] = country
+model_input["country"] = country
 model_input["release_year"] = 2023
 model_input[ModelHelpers.columnstartswith("genre",df=tv_df)] = False
 model_input[genre_dict[option]] = True
