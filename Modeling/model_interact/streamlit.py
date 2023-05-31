@@ -97,10 +97,10 @@ year = 2023
 
 if advanced:
     rating = st.selectbox("Select the audience rating:",
-                 sorted(list(set(tv_df["rating"]).difference(np.nan)))
+                 sorted(list(set(tv_df["rating"]).difference(set(np.nan))))
     )
     country = st.selectbox("Select the country of production:",
-                 sorted(list(set(tv_df["country"]).difference(np.nan)))
+                 sorted(list(set(tv_df["country"]).difference(set(np.nan))))
     )
     if mediatype == "Movie":
         duration = st.slider("Choose the duration of the movie:",10,180,10)
