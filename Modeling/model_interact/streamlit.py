@@ -103,7 +103,7 @@ if advanced:
                  sorted(list(set(tv_df["country"]).difference(set([np.nan]))))
     )
     if mediatype == "Movie":
-        duration = st.slider("Choose the duration of the movie:", min_value = 10, max_value = 180, value = 90, step = 10)
+        duration = st.slider("Choose the duration of the movie:", min_value = 10, max_value = 180, value = 90, step = 1)
     else:
         duration = st.number_input("Choose the number of seasons for the show:", min_value = 1, max_value = 15, value = 1, step = 1)
             
