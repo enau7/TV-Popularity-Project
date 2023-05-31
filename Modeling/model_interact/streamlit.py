@@ -61,7 +61,7 @@ st.write('Select the genre of your {}.'.format(mediatype.lower()))
 option = st.selectbox(
     'Genre of media:',
     sorted(genre_dict.keys()),
-    label_visibility=False)
+    label_visibility="hidden")
 
 'Would you like to assign a director or give an average score?'
 director = st.checkbox('Director')
