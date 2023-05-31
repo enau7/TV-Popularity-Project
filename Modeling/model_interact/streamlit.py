@@ -70,7 +70,7 @@ if director:
     'Select a Director',
     directors)
     score_director = dir_av_score_dict[dir_select]
-    st.write('{} has an average score of {}'.format(dir_select, score_director))
+    st.write('{} has an average score of {}'.format(dir_select, round(score_director)))
 else: 
     score_director  = st.slider(
 "Average Score of the Director?", 0, 100, 50)
