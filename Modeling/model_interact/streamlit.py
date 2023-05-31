@@ -89,8 +89,12 @@ else:
 "Average Score of the Cast?", 0, 100, 50)
     
 advanced = st.checkbox("Advanced options")
+
+rating = np.nan
+
+
 if advanced:
-    st.selectbox("Select the audience rating:",
+    rating = st.selectbox("Select the audience rating:",
                  tv_df["rating"].unique())
             
 ## MODEL STUFF
@@ -102,7 +106,7 @@ model_input["type"] = mediatype
 model_input["duration"] = np.nan
 model_input["cast_average_score"] = score_cast
 model_input["dir_average_score"] = score_director
-model_input["rating"] = "PG-13"
+model_input["rating"] = rating
 # model_input["country"] = np.nan ?? GIVES PROBLEMS
 model_input["release_year"] = 2023
 model_input[ModelHelpers.columnstartswith("genre",df=tv_df)] = False
