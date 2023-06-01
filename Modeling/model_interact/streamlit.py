@@ -33,7 +33,6 @@ largest_folder = abs_path[:largest_folder_index]
 
 tv_df_filename = largest_folder + "/Data/data/streaming_titles_final.csv"
 dir_score_df_filename = largest_folder + "/Data/data/director_scores.csv"
-model_filename = largest_folder + "/Modeling/models/beta_regression.joblib"
 cast_score_df_filename = largest_folder + "/Data/data/cast_scores.csv"
 
 tv_df = pd.read_csv(tv_df_filename)
@@ -41,9 +40,9 @@ dir_score_df = pd.read_csv(dir_score_df_filename)
 cast_score_df = pd.read_csv(cast_score_df_filename)
 dir_av_score_dict = dict(zip(dir_score_df["director"],dir_score_df["dir_average_score"]))
 cast_av_score_dict = dict(zip(cast_score_df["cast"],cast_score_df["cast_average_score"]))
-model = joblib.load(model_filename)
 
-st.write(model)
+
+
 
 genres = tv_df.columns[tv_df.columns.str.startswith('genre.')]
 directors = dir_av_score_dict.keys()
@@ -63,6 +62,8 @@ option = st.selectbox(
     sorted(genre_dict.keys()),
     label_visibility="hidden")
 
+model_name = st.selectbox('Pick the Model:',
+    ['beta_regression','decision_tree','knn','random_forest'])
 'Would you like to assign a director or give an average score?'
 director = st.checkbox('Director')
 if director:
@@ -137,7 +138,8 @@ model_input[genre_dict[option]] = True
 #                                                                      "country",
 #                                                                      "duration",
 #                                                                      ]+ModelHelpers.columnstartswith("genre",df=tv_df))))])
-
+model_filename = largest_folder + "/Modeling/models/{}.joblib".format(model_name)
+model = joblib.load(largest_folder + model_filename)
 pred = model.predict(model_input)[0]
 
 st.write(f"Your {mediatype.lower()} has a predicted score of:")
