@@ -1,9 +1,15 @@
 ---
-title: 'TV Show and Movie Popularity Project'
+title: 'TV Show and Movie Popularity Analysis'
+author:
+  - Christian Garduno
+  - Roshan Mehta
+  - Colton Rowe
+date: "6/3/23"
 theme:
   dark: darkly
 format:
   html:
+    page-layout: full
     toc: true
     code-fold: true
 editor: visual
@@ -15,17 +21,17 @@ jupyter: python3
 
 **Abstract**
 
-In this data science project, we will analyze a dataset containing information about streaming titles, specifically focusing on TV shows and movies from Netflix. The dataset, which can be found [need links](../Data%20Preprocessing.qmd), provides valuable insights into the popularity and characteristics of different titles available on the streaming platform.
+The present article analyzes a dataset containing information about streaming titles, specifically focusing on TV shows and movies from four popular streaming platforms. The dataset, which can be found [here](../Data%20Preprocessing.qmd), provides valuable insights into the popularity and characteristics of different titles available on the streaming platform.
 
 **Problem Statement**
 
-The streaming services industry has seen rapid growth in recent years and has undoubtedly revolutionized the way we consume content. With numerous platforms offering a vast array of TV shows, it has become increasingly important for creators and streaming platforms to understand what makes a TV show popular. This project aims to explore the Kaggle dataset and uncover key factors that contribute to the popularity of TV shows on streaming platforms through a series of different models.
+The streaming services industry has seen rapid growth in recent years and has undoubtedly revolutionized the way we consume content. With numerous platforms offering a vast array of TV shows, it has become increasingly important for creators and streaming platforms to understand what makes a TV show popular. Here, we aim to explore and uncover key factors that contribute to the popularity of TV shows on streaming platforms through a series of different models.
 
 **Data Collection and Description**
 
 *Variable Description*
 
-The dataset contains several variables that provide valuable information for our analysis. Here is a brief description of the key variables:
+The dataset contains both categorical and numeric variables which may provide insights for our analysis. Here is a brief description of the key variables:
 
 -   **`type`**: Indicates whether the show is a TV series or a movie.
 -   **`title`**: The title of the TV show.
@@ -42,7 +48,7 @@ The dataset contains several variables that provide valuable information for our
 
 Together, these variables provide a set of features that allow us to analyze and understand the characteristics that determine the popularity of TV shows. By exploring these variables and their relationships, we can gain insights into the factors that contribute to a show's popularity, like the impact of different genres or countries of origin, and begin to create better shows that more people would watch.
 
-#### Data Preprocessing
+#### Data
 
 **Source**
 
@@ -66,29 +72,30 @@ talk to colton
 
 In this section we will explore and visualize our dataset to gain a better understanding of what we are working with, identify any obvious patterns, correlations, or trends.
 
+TODO: Add description
+/ interpretation for each figure
+
 ```{python}
 import pandas as pd
 data = pd.read_csv("../Data/data/streaming_titles_final.csv")
 ```
 
+## Figures
+
+::: panel-tabset
+
 ```{python}
+# | echo: False
 import matplotlib.pyplot as plt
-
-data = data
-
-print("The number of rows in the data set is " + str(len(data)))
-data.head()
 ```
 
-```{python}
-data.isna().sum(); print(data.shape)
-```
-
+#### needs title
 ```{python}
 import seaborn as sns
 sns.countplot(x=data["type"])
 ```
 
+#### needs title
 ```{python}
 # | fig.width: 10
 # 1. Line Chart of the Number of Titles Released per Year
@@ -109,6 +116,7 @@ plt.title("Number of Titles Released per Year")
 plt.show()
 ```
 
+#### needs title
 ```{python}
 # | fig.width: 10
 
@@ -128,6 +136,7 @@ plt.title("Distribution of Content Ratings")
 plt.show()
 ```
 
+#### needs title
 ```{python}
 # | fig.width: 10
 
@@ -155,6 +164,7 @@ plt.title("Number of Titles per Country")
 plt.show()
 ```
 
+#### needs title
 ```{python}
 # | fig.width: 10
 
@@ -176,6 +186,7 @@ plt.title("IMDB Rating vs. Runtime for Movies on Streaming Services")
 plt.show()
 ```
 
+#### needs title
 ```{python}
 # | fig.width: 10
 
@@ -197,6 +208,7 @@ plt.title("IMDB Rating vs. Runtime for Movies on Streaming Services")
 plt.show()
 ```
 
+#### needs title
 ```{python}
 # | fig.width: 10
 
@@ -227,26 +239,114 @@ plt.title("Top 10 Genres by Number of Titles")
 # Display chart
 plt.show()
 ```
+:::
 
 Also need to go back and figure out how to show only the charts and hide the other unnecessary output.
 
+```{python}
+import matplotlib.pyplot as plt
+
+data = data
+
+print("The number of rows in the data set is " + str(len(data)))
+data.head()
+```
+
+```{python}
+data.isna().sum(); print(data.shape)
+```
+
 #### App
+
+Here, you can input parameters for a Movie or TV Show and see our model's prediction for your show.
+
 <iframe
   src="https://tv-popularity-model.streamlit.app//?embed=true"
   height="750"
   style="width:100%;border:none;"
 ></iframe>
-App page (need to embed app here for use)
 
 #### Methods
 
-Methods Page
+```{python}
+# | echo: false
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(os.path.abspath("__file__")), '../Modeling')))
+import ModelHelpers
+import joblib
+import sklearn
+```
 
-#### Results
+# Modeling
 
-Results Page
+::: panel-tabset
+#### Beta Regression
 
-#### Discussion and Interpretation
+## Beta Regression
 
-Discussion and Interpretation Page
+- Similar to a logistic regression, it uses a sigmoid to predict a probability in [0,1].
+- The response can be scaled to a specified range ([0,100]).
+- It's hyperparameter is scale.
+
+![Sigmoid](Images/sigmoid.png)
+
+We decided to fit a beta regression as opposed to a linear regression because we wanted the model to predict values only within the range [0,100]. A beta regression allows us to specify this range.
+
+Our pipeline was structured as follows:
+
+```{python}
+# | echo : False
+joblib.load("../Modeling/models/beta_regression.joblib")
+```
+
+First, we selected the predictors we wanted to use. Then, we one hot encoded the categorical variables. Simultaneously, we dealt with missing numerical values by encoding if a value was missing and filling it with a 0 if it was. We add our model as the last step in the pipeline.
+
+We tuned the hyperparameter scale, and found that a scale of 1 was the best to use. The best cross-evaluation score for this model was a mean squared error of 19.26. We can loosely interpret this as saying our model is, on average, 19.26 imdb rating points off from the actual score.
+
+#### KNN
+
+## K-Nearest Neigbors
+
+- bullets
+
+```{python}
+# | echo : False
+joblib.load("../Modeling/models/knn.joblib")
+```
+
+#### Decision Tree
+
+## Decision Tree Regressor
+
+- A series of yes/no questions
+- Questions start general and become more specific
+- Leaf nodes represent the predicted score
+- Will never predict greater than the maximum value or less than the minimum value
+
+```{python}
+# | echo : False
+joblib.load("../Modeling/models/decision_tree.joblib")
+```
+
+#### Random Forest
+
+## Random Forest Regressor
+
+- Many decision trees working together
+- Each tree has a restricted set of parameters
+
+```{python}
+# | echo : False
+joblib.load("../Modeling/models/random_forest.joblib")
+```
+
+:::
+
+# Results
+
+TODO: Take Beta Regression and Random Forest and calculate test MSE. Compare with standard deviation, make inferences.
+
+
+
 :::
