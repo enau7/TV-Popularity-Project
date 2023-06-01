@@ -138,7 +138,7 @@ model_input[genre_dict[option]] = True
 #                                                                      "country",
 #                                                                      "duration",
 #                                                                      ]+ModelHelpers.columnstartswith("genre",df=tv_df))))])
-model_filename = largest_folder + "/Modeling/models/{}.joblib".format(model_name)
+model_filename = largest_folder + "/Modeling/models/knn.joblib".format(model_name)
 model = joblib.load(largest_folder + model_filename)
 pred = model.predict(model_input)[0]
 
