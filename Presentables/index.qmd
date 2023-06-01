@@ -278,19 +278,21 @@ import joblib
 import sklearn
 ```
 
-Overall, this section uncovered several intriguing patterns. We almost have an 80/20 split of movies and shows within our data. The number of released titles per year is exponential, and is only hindered in 2020, due to the COVID-19 pandemic limiting production. The few bar plots also demonstrate the ratings, major countries, and the types of media within the dataset. Now we have a much better picture of the data that we are working with and can keep this in mind for our future models.
+These visualizations revealed several intriguing patterns. We almost have an 80/20 split of movies and shows within our data. The number of released titles per year is exponential, and is only hindered in 2020, due to the COVID-19 pandemic limiting production. The few bar plots also demonstrate the ratings, major countries, and the types of media within the dataset. Now we have a much better picture of the data that we are working with and can keep this in mind for our future models.
 
 #### Methods & Results
 
+# Overview
+
 In this section, we describe the machine learning models employed for predicting the popularity score of TV shows and movies in our project. We utilized several models, including beta regression, decision tree, K-Nearest Neighbors (KNN), and random forest. Each of these models offers unique characteristics and can capture different aspects of the data to make accurate predictions.
 
-*Train-Test Split*
+## Train-Test Split
 
 To evaluate the performance of our machine learning models, we employed a train-test split approach. This process involves dividing our dataset, consisting of TV shows and movies, into two separate subsets: a training set and a testing set. The training set, which constitutes a majority of the data, was used to train our models to learn the underlying patterns and relationships between the features and the target variable, which in our case is the popularity score. The testing set, on the other hand, served as an unseen dataset to assess the models' generalization ability and determine their predictive performance on new, unseen instances. By randomly assigning the data points to the training and testing sets, we ensured that the evaluation process is unbiased and representative of real-world scenarios. After fitting each model with the training set, we are left with the root mean squared error (rMSE) value.
 
 This metric gives us the weighted distance our model is from the correct metric. The datasetFor example, if we had a rMSE of 21.7, this means that if we guessed the mean every time, we would be, on average, off by 21.7 points. So, our model should try to get a better rMSE than 21.7, or minimize this value.
 
-*Additional Information*
+## Additional Information
 
 For all of these models, we defined the set of predictor variables to be the same. These predictors included genre information, duration, release year, type, rating, director's average score, cast's average score, and country.
 
@@ -309,6 +311,8 @@ Beta regression is a statistical model specifically designed for modeling contin
 
 We decided to fit a beta regression as opposed to a linear regression because we wanted the model to predict values only within the range \[0,100\]. A beta regression allows us to specify this range.
 
+### Pipeline
+
 Our pipeline was structured as follows:
 
 ```{python}
@@ -319,17 +323,27 @@ joblib.load("../Modeling/models/beta_regression.joblib")
 
 First, we selected the predictors we wanted to use. Then, we one hot encoded the categorical variables. Simultaneously, we dealt with missing numerical values by encoding if a value was missing and filling it with a 0 if it was. We add our model as the last step in the pipeline.
 
-The best cross-evaluation score for this model was a **mean squared error** of **19.26**. We can loosely interpret this as saying our model is, on average, 19.26 IMDb rating points off from the actual score.
+### Cross Evaluation
+
+The best cross-evaluation score for this model was a **root mean squared error** of **19.26**. We can loosely interpret this as saying our model is, on average, 19.26 IMDb rating points off from the actual score.
 
 ## Results
+
+### Test rMSE: 19.71
+
+The beta regression achived a **test rMSE** of **19.71**. This is about a 2 point difference from the sample standard deviation of the scores (21.7), which means the beta regression predicts about 2 rating points more accurately than guessing the mean, on average.
 
 #### KNN
 
 ## K-Nearest Neighbors
 
-K-Nearest Neighbors is a non-parametric algorithm that makes predictions based on the similarity of a given data point to its k nearest neighbors in the feature space. In our case, KNN is used to predict the popularity score by finding the k most similar instances in the training data. KNN is particularly suitable when similar shows or movies tend to have similar scores.
+K-Nearest Neighbors is a non-parametric algorithm that makes predictions based on the similarity of a given data point to its k nearest neighbors in the feature space. In our case, KNN is used to predict the popularity score by finding the k most similar instances in the training data. KNN would be particularly suitable if similar shows or movies tend to have similar scores.
 
 ![KNN](Images/knn_visual.png)
+
+### Pipeline
+
+Our pipeline was structured as follows:
 
 ```{python}
 # | echo : false
@@ -337,7 +351,18 @@ K-Nearest Neighbors is a non-parametric algorithm that makes predictions based o
 joblib.load("../Modeling/models/knn.joblib")
 ```
 
+This is the same pipeline as in the beta regression, with the model swapped out for KNN.
+
+### Hyperparameter Tuning and Cross Evaluation
+
+For KNN, we tuned two hyperparameters: `n_neighbors` and `weights`. `n_neighbors` controls the number of nearest neighbors to be used when making a prediction. `weights` controls how the points are averaged to make that prediction: uniformly or by distance. We found that the best value for `n_neighbors` was 17, and the best method for `weights` was by weighting by distance. The highest cross evaluation score for KNN was a **root mean squared error** of **20.48**.
+
 ## Results
+
+### Test rMSE: 20.52
+
+The K-Nearest Neighbors model achived a **test rMSE** of **20.52**. This is about a 1 point difference from the sample standard deviation of the scores (21.7), which means the beta regression predicts about 1 rating point more accurately than guessing the mean, on average.
+
 
 #### Decision Tree
 
@@ -347,21 +372,36 @@ Decision trees are intuitive models that create a flowchart-like structure of de
 
 ![Decision Tree](Images/dt.jpeg)
 
+### Pipeline
+
+Our pipeline is structured in the same way as our other models:
+
 ```{python}
 # | echo : false
 # | warning: false
 joblib.load("../Modeling/models/decision_tree.joblib")
 ```
 
+### Hyperparameter Tuning and Cross Evaluation
+For the decision tree, we chose to tune two hyperparameters: `max_depth` and `min_samples_leaf`. Both of these hyperparameters can help with overfitting, which decision trees are notorious to do if left unchecked. The decision tree got a cross evaluation **root mean squared error** of **20.20**.
+
 ## Results
+
+### Test rMSE: 19.84
+
+The Decision Tree achived a **test rMSE** of **19.84**. This is about a 2 point difference from the sample standard deviation of the scores (21.7), which means the beta regression predicts about 2 rating points more accurately than guessing the mean, on average.
 
 #### Random Forest
 
 ## Random Forest Regressor
 
+Random forest is model that combines multiple decision trees to make predictions. It averages across the individual tree predictions. Random forest can handle non-linear relationships, capture feature interactions, and effectively handle high-dimensional data. It provides robust predictions and reduces the risk of overfitting compared to individual decision trees.
+
 ![Random Forest](Images/A9E60566-EAB8-429C-A9ED-B867B2EC179A_1_201_a.jpeg)
 
-Random forest is model that combines multiple decision trees to make predictions. It averages across the individual tree predictions. Random forest can handle non-linear relationships, capture feature interactions, and effectively handle high-dimensional data. It provides robust predictions and reduces the risk of overfitting compared to individual decision trees.
+### Pipeline
+
+Again, we set up our pipeline as follows:
 
 ```{python}
 # | echo : false
@@ -369,12 +409,21 @@ Random forest is model that combines multiple decision trees to make predictions
 joblib.load("../Modeling/models/random_forest.joblib")
 ```
 
+### Hyperparameter Tuning and Cross Evaluation
+
+Because a random forest contains many decision trees, you can tune both the hyperparameters of the forest and of the trees. We chose to again to tune `n_neighbors` and `weights`, and an additional hyperparameter `n_estimators`. This additional parameter controls the number of trees in the forest. Typically, more trees means a better model, and that is exactly what we found here, with `n_estimators` = 300. There seemed to be a drop off in the increase in performance around at 300 trees, so we didn't search for values of `n_estimators` farther than that. The cross evaluation score of the random forest was a **root mean squared error** of **18.94**.
+
 ## Results
+
+### Test rMSE: 19.03
+
+The Decision Tree achived a **test rMSE** of **19.03**. This is almost a 3 point difference from the sample standard deviation of the scores (21.7), which means the beta regression predicts almost 3 rating points more accurately than guessing the mean, on average.
+
 :::
 
 #### App
 
-Here, you can input parameters for a Movie or TV Show and see our model's prediction for your show.
+Here, you can input parameters for a Movie or TV Show and see each our models' predictions for your show.
 
 <iframe src="https://tv-popularity-model.streamlit.app//?embed=true" height="750" style="width:100%;border:none;">
 
