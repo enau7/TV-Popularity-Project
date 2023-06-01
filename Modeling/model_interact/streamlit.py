@@ -49,7 +49,7 @@ cast_av_score_dict = dict(zip(cast_score_df["cast"],cast_score_df["cast_average_
 
 
 genres = tv_df.columns[tv_df.columns.str.startswith('genre.')]
-directors = sorted(list(set(dir_av_score_dict.keys()).difference(set(["20th_century_fox"]))))
+directors = sorted(list(set(dir_av_score_dict.keys()))).drop('20th_century_fox')
 cast_members = cast_av_score_dict.keys()
 countries = supersplit(tv_df['country'])
 pretty_genre = lambda x: x[6:].replace("_"," ")
