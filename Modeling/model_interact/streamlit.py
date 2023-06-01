@@ -143,9 +143,14 @@ model_input[genre_dict[option]] = True
 #                                                                      "country",
 #                                                                      "duration",
 #                                                                      ]+ModelHelpers.columnstartswith("genre",df=tv_df))))])
-model = joblib.load(model_dict[model_name])
-pred = model.predict(model_input)[0]
 
-st.write(f"Your {mediatype.lower()} has a predicted score of:")
-st.header(round(pred,2))
+model = joblib.load(model_dict[model_name])
+
+try:
+    pred = model.predict(model_input)[0]
+    st.write(f"Your {mediatype.lower()} has a predicted score of:")
+    st.header(round(pred,2))
+
+except:
+    st.subheader("Our model ran into an error due to insufficient data. Please try a different set of inputs.")
 
