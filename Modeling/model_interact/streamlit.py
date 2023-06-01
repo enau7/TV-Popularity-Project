@@ -33,7 +33,12 @@ largest_folder = abs_path[:largest_folder_index]
 
 tv_df_filename = largest_folder + "/Data/data/streaming_titles_final.csv"
 dir_score_df_filename = largest_folder + "/Data/data/director_scores.csv"
+model_filename_beta = largest_folder + "/Modeling/models/beta_regression.joblib"
+model_filename_decision = largest_folder + "/Modeling/models/decision_tree.joblib"
+model_filename_knn = largest_folder + "/Modeling/models/knn.joblib"
+model_filename_random = largest_folder + "/Modeling/models/random_forest.joblib"
 cast_score_df_filename = largest_folder + "/Data/data/cast_scores.csv"
+
 
 tv_df = pd.read_csv(tv_df_filename)
 dir_score_df = pd.read_csv(dir_score_df_filename)
