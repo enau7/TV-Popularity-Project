@@ -1,14 +1,15 @@
 # TV Show and Movie Popularity Prediction
-Using data from streaming services to tv show and movie popularity.
+Using tv show and movie data from various streaming services to predict their popularity.
 
 ## Completed:
 - Gathered and compiled initial data
 - Used API to get IMDB rating data
 - Fixed rating / duration mixup
-- Turned `genre` into a factor variable, with levels which are not mutually exclusive.
-
-## Next Steps:
-Start fitting models, continue with visualization.
+- Turned `genre` into a factor variable, with levels which are not mutually exclusive
+- Completed exploratory data analysis
+- Fit numerous models and selected the best
+- Created an interactive app to obtain a popularity score with selected data points 
+- Constructed a website containing our work, showcasing our project 
 
 Can we find budget / revenue data? Probably not, it looks like you have to pay (a lot) for it, but we could try.
 
