@@ -21,7 +21,7 @@ jupyter: python3
 
 **Abstract**
 
-The present article analyzes a dataset containing information about titles on different streaming services and build a model to predict the popularity of an arbitrary title. The datasets used were sourced from [Kaggle](https://www.kaggle.com/) and the specific links can be found on the `Data Preprocessing` tab above. These provide valuable insights into the popularity and characteristics of different titles available on the streaming platforms and will help us in predicting the outcomes of future titles.
+The present article analyzes a dataset containing information about titles on different streaming services and build a model to predict the popularity of an arbitrary title. The datasets used were sourced from [Kaggle](https://www.kaggle.com/) and the specific links can be found on the `Data` tab above. These provide valuable insights into the popularity and characteristics of different titles available on the streaming platforms and will help us in predicting the outcomes of future titles.
 
 **Problem Statement**
 
@@ -57,19 +57,17 @@ We combined the below four datasets found on Kaggle to get a comprehensive datas
 -   [Amazon Prime](https://www.kaggle.com/datasets/shivamb/amazon-prime-movies-and-tv-shows)
 -   [Netflix](https://www.kaggle.com/datasets/shivamb/netflix-shows)
 
-**Cleaning** 
+**Cleaning**
 
-The main metric in this project that we used to feed our models was the IMDB score of the Movie or TV Show. After combing the four datasets we found on Kaggle we discovered some of the shows had null values for their IMDB score. In order to replace these nulls we connected to an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). With this API we were able to query by Movie or Show Title and get it's IMDB score. 
+The main metric in this project that we used to feed our models was the IMDB score of the Movie or TV Show. After combing the four datasets we found on Kaggle we discovered some of the shows had null values for their IMDB score. In order to replace these nulls we connected to an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). With this API we were able to query by Movie or Show Title and get it's IMDB score.
 
-The next part was the cleaning and formating of our data so that it can be vectorized for our models. Since cast, director, and country of origin were all in lists, we had to split each list value into their own rows. Due to this spliting we can turn our categorical variables into numerical representation in order for our model to read it. 
-
+The next part was the cleaning and formating of our data so that it can be vectorized for our models. Since cast, director, and country of origin were all in lists, we had to split each list value into their own rows. Due to this spliting we can turn our categorical variables into numerical representation in order for our model to read it.
 
 #### Exploratory Data Analysis (EDA)
 
 In this section we will explore and visualize our dataset to gain a better understanding of what we are working with, identify any obvious patterns, correlations, or trends.
 
-TODO: Add description
-/ interpretation for each figure
+TODO: Add description / interpretation for each figure
 
 ```{python}
 import pandas as pd
@@ -79,7 +77,6 @@ data = pd.read_csv("../Data/data/streaming_titles_final.csv")
 ## Figures
 
 ::: panel-tabset
-
 ```{python}
 # | echo: False
 import matplotlib.pyplot as plt
@@ -89,20 +86,21 @@ data.head()
 ```
 
 ```{python}
-print("We have " + str(len(data)) + " total different movies and TV shows that we are working with.")
-```
-
-#### needs title
-```{python}
 data.isna().sum()
 ```
 We can verify that there are no missing values, as these were handled during the data cleaning step.
+
+#### Size & Distribution
+
+```{python}
+print("We have " + str(len(data)) + " total different movies and TV shows that we are working with.")
+```
+
 
 ```{python}
 print(data.shape)
 print("There are a total of 89 columns that were are working with.")
 ```
-
 
 ```{python}
 import seaborn as sns
@@ -118,7 +116,8 @@ plt.title("Distribution of Titles by Type")
 plt.show()
 ```
 
-#### needs title
+#### Line Chart
+
 ```{python}
 # | fig.width: 10
 # 1. Line Chart of the Number of Titles Released per Year
@@ -139,7 +138,8 @@ plt.title("Number of Titles Released per Year")
 plt.show()
 ```
 
-#### needs title
+#### Content Ratings
+
 ```{python}
 # | fig.width: 10
 
@@ -159,7 +159,8 @@ plt.title("Distribution of Content Ratings")
 plt.show()
 ```
 
-#### needs title
+#### Titles by Country
+
 ```{python}
 # | fig.width: 10
 
@@ -187,7 +188,8 @@ plt.title("Number of Titles per Country")
 plt.show()
 ```
 
-#### needs title
+#### IMDb Rating Vs. Runtime (Movies)
+
 ```{python}
 # | fig.width: 10
 
@@ -209,7 +211,8 @@ plt.title("IMDb Rating vs. Runtime for Movies")
 plt.show()
 ```
 
-#### needs title
+#### IMDb Rating Vs. Runtime (TV Shows)
+
 ```{python}
 # | fig.width: 10
 
@@ -231,7 +234,8 @@ plt.title("IMDb Rating vs. Runtime for TV Shows")
 plt.show()
 ```
 
-#### needs title
+#### Top Genres
+
 ```{python}
 # | fig.width: 10
 
@@ -264,21 +268,6 @@ plt.show()
 ```
 :::
 
-Also need to go back and figure out how to show only the charts and hide the other unnecessary output.
-
-```{python}
-import matplotlib.pyplot as plt
-
-data = data
-
-print("The number of rows in the data set is " + str(len(data)))
-data.head()
-```
-
-```{python}
-data.isna().sum(); print(data.shape)
-```
-
 ```{python}
 # | echo: false
 import sys
@@ -288,21 +277,22 @@ import ModelHelpers
 import joblib
 import sklearn
 ```
+
 Overall, this section uncovered several intriguing patterns. We almost have an 80/20 split of movies and shows within our data. The number of released titles per year is exponential, and is only hindered in 2020, due to the COVID-19 pandemic limiting production. The few bar plots also demonstrate the ratings, major countries, and the types of media within the dataset. Now we have a much better picture of the data that we are working with and can keep this in mind for our future models.
 
-#### Methods
+#### Methods & Results
 
 In this section, we describe the machine learning models employed for predicting the popularity score of TV shows and movies in our project. We utilized several models, including beta regression, decision tree, K-Nearest Neighbors (KNN), and random forest. Each of these models offers unique characteristics and can capture different aspects of the data to make accurate predictions.
 
 *Train-Test Split*
 
-To evaluate the performance of our machine learning models, we employed a train-test split approach. This process involves dividing our dataset, consisting of TV shows and movies, into two separate subsets: a training set and a testing set. The training set, which constitutes a majority of the data, was used to train our models to learn the underlying patterns and relationships between the features and the target variable, which in our case is the popularity score. The testing set, on the other hand, served as an unseen dataset to assess the models' generalization ability and determine their predictive performance on new, unseen instances. By randomly assigning the data points to the training and testing sets, we ensured that the evaluation process is unbiased and representative of real-world scenarios. After fitting each model with the training set, we are left with the root mean squared error (rMSE) value. 
+To evaluate the performance of our machine learning models, we employed a train-test split approach. This process involves dividing our dataset, consisting of TV shows and movies, into two separate subsets: a training set and a testing set. The training set, which constitutes a majority of the data, was used to train our models to learn the underlying patterns and relationships between the features and the target variable, which in our case is the popularity score. The testing set, on the other hand, served as an unseen dataset to assess the models' generalization ability and determine their predictive performance on new, unseen instances. By randomly assigning the data points to the training and testing sets, we ensured that the evaluation process is unbiased and representative of real-world scenarios. After fitting each model with the training set, we are left with the root mean squared error (rMSE) value.
 
-This metric gives us the weighted distance our model is from the correct metric. The datasetFor example, if we had a rMSE of 21.7, this means that if we guessed the mean every time, we would be, on average, off by 21.7 points. So, our model should try to get a better rMSE than 21.7, or minimize this value. 
+This metric gives us the weighted distance our model is from the correct metric. The datasetFor example, if we had a rMSE of 21.7, this means that if we guessed the mean every time, we would be, on average, off by 21.7 points. So, our model should try to get a better rMSE than 21.7, or minimize this value.
 
 *Additional Information*
 
-For all of these models, we defined the set of predictor variables to be the same. These predictors included genre information, duration, release year, type, rating, director's average score, cast's average score, and country. 
+For all of these models, we defined the set of predictor variables to be the same. These predictors included genre information, duration, release year, type, rating, director's average score, cast's average score, and country.
 
 Also, to evaluate all four model's performance and validate its predictive ability, we employed a cross-validation strategy. Code was written so that the dataset was divided into five subsets or folds, with each fold serving as a testing set while the remaining four folds were used for training. The grid search was performed within this cross-validation framework, optimizing the model's hyperparameters based on the negative root mean squared error (RMSE) metric. By utilizing cross-validation, we obtained robust estimates of the model's performance and ensured the generalization of the results to unseen data.
 
@@ -317,7 +307,7 @@ Beta regression is a statistical model specifically designed for modeling contin
 
 ![Sigmoid](Images/sigmoid.png)
 
-We decided to fit a beta regression as opposed to a linear regression because we wanted the model to predict values only within the range [0,100]. A beta regression allows us to specify this range.
+We decided to fit a beta regression as opposed to a linear regression because we wanted the model to predict values only within the range \[0,100\]. A beta regression allows us to specify this range.
 
 Our pipeline was structured as follows:
 
@@ -329,11 +319,9 @@ joblib.load("../Modeling/models/beta_regression.joblib")
 
 First, we selected the predictors we wanted to use. Then, we one hot encoded the categorical variables. Simultaneously, we dealt with missing numerical values by encoding if a value was missing and filling it with a 0 if it was. We add our model as the last step in the pipeline.
 
-The best cross-evaluation score for this model was a **mean squared error** of **19.26**. We can loosely interpret this as saying our model is, on average, 19.26 imdb rating points off from the actual score.
+The best cross-evaluation score for this model was a **mean squared error** of **19.26**. We can loosely interpret this as saying our model is, on average, 19.26 IMDb rating points off from the actual score.
 
-# Results
-
-
+## Results
 
 #### KNN
 
@@ -341,11 +329,15 @@ The best cross-evaluation score for this model was a **mean squared error** of *
 
 K-Nearest Neighbors is a non-parametric algorithm that makes predictions based on the similarity of a given data point to its k nearest neighbors in the feature space. In our case, KNN is used to predict the popularity score by finding the k most similar instances in the training data. KNN is particularly suitable when similar shows or movies tend to have similar scores.
 
+![KNN](Images/knn_visual.png)
+
 ```{python}
 # | echo : false
 # | warning: false
 joblib.load("../Modeling/models/knn.joblib")
 ```
+
+## Results
 
 #### Decision Tree
 
@@ -353,15 +345,21 @@ joblib.load("../Modeling/models/knn.joblib")
 
 Decision trees are intuitive models that create a flowchart-like structure of decisions and their potential consequences. Each internal node represents a decision based on a specific feature, and each leaf node represents the predicted outcome (popularity score). Decision trees are capable of handling both numerical and categorical features, and they offer interpretability by visualizing the decision-making process.
 
+![Decision Tree](Images/dt.jpeg)
+
 ```{python}
 # | echo : false
 # | warning: false
 joblib.load("../Modeling/models/decision_tree.joblib")
 ```
 
+## Results
+
 #### Random Forest
 
 ## Random Forest Regressor
+
+![Random Forest](/Images/A9E60566-EAB8-429C-A9ED-B867B2EC179A_1_201_a.jpeg)
 
 Random forest is model that combines multiple decision trees to make predictions. It averages across the individual tree predictions. Random forest can handle non-linear relationships, capture feature interactions, and effectively handle high-dimensional data. It provides robust predictions and reduces the risk of overfitting compared to individual decision trees.
 
@@ -370,6 +368,7 @@ Random forest is model that combines multiple decision trees to make predictions
 # | warning: false
 joblib.load("../Modeling/models/random_forest.joblib")
 ```
+## Results
 
 :::
 
@@ -377,10 +376,7 @@ joblib.load("../Modeling/models/random_forest.joblib")
 
 Here, you can input parameters for a Movie or TV Show and see our model's prediction for your show.
 
-<iframe
-  src="https://tv-popularity-model.streamlit.app//?embed=true"
-  height="750"
-  style="width:100%;border:none;"
-></iframe>
+<iframe src="https://tv-popularity-model.streamlit.app//?embed=true" height="750" style="width:100%;border:none;">
 
+</iframe>
 :::
