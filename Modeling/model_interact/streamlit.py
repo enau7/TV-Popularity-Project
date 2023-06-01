@@ -148,7 +148,7 @@ model = joblib.load(model_dict[model_name])
 
 try:
     pred = model.predict(model_input)[0]
-    st.write(f"Your {mediatype.lower()} has a predicted score of:")
+    st.subheader(f"Your {mediatype.lower()} has a predicted score of:")
     st.header(round(pred,2))
 
 except:
