@@ -319,7 +319,7 @@ In this section, we describe the machine learning models employed for predicting
 
 To evaluate the performance of our machine learning models, we employed a train-test split approach. This process involves dividing our dataset, consisting of TV shows and movies, into two separate subsets: a training set and a testing set. The training set, which constitutes a majority of the data, was used to train our models to learn the underlying patterns and relationships between the features and the target variable, which in our case is the popularity score. The testing set, on the other hand, served as an unseen dataset to assess the models' generalization ability and determine their predictive performance on new, unseen instances. By randomly assigning the data points to the training and testing sets, we ensured that the evaluation process is unbiased and representative of real-world scenarios. After fitting each model with the training set, we are left with the root mean squared error (rMSE) value.
 
-This metric gives us the weighted distance our model is from the correct metric. The datasetFor example, if we had a rMSE of 21.7, this means that if we guessed the mean every time, we would be, on average, off by 21.7 points. So, our model should try to get a better rMSE than 21.7, or minimize this value.
+This metric gives us the weighted distance our model is from the correct metric. We found that the response variable `score` has a sample standard deviation of 21.7. This means that if we guessed the mean every time, we would be, on average, off by 21.7 points. So, our model should try to minimize the rMSE and get at most a rMSE of 21.7.
 
 ## Additional Information
 
