@@ -298,34 +298,13 @@ In this section, we describe the machine learning models employed for predicting
 
 To evaluate the performance of our machine learning models, we employed a train-test split approach. This process involves dividing our dataset, consisting of TV shows and movies, into two separate subsets: a training set and a testing set. The training set, which constitutes a majority of the data, was used to train our models to learn the underlying patterns and relationships between the features and the target variable, which in our case is the popularity score. The testing set, on the other hand, served as an unseen dataset to assess the models' generalization ability and determine their predictive performance on new, unseen instances. By randomly assigning the data points to the training and testing sets, we ensured that the evaluation process is unbiased and representative of real-world scenarios. After fitting each model with the training set, we are left with the root mean squared error (rMSE) value. 
 
-This metric gives us the weighted distance our model is from the correct metric. For example, if we had a rMSE of 21.7, this means that if we guessed the mean every time, we would be, on average, off by 21.7 points. So, our model should try to get a better rMSE than 21.7, or minimize this value. 
-
-**Methods Used**
-
-
-*Beta Regression*
-
-Beta regression is a statistical model specifically designed for modeling continuous variables bounded between 0 and 1. In our case, we used beta regression to predict the popularity score, which ranges from 0 to 100. Beta regression takes into account the distributional characteristics of the data and can handle the inherent boundedness of the popularity score, allowing for accurate predictions.
-
-*Decision Tree*
-
-Decision trees are intuitive models that create a flowchart-like structure of decisions and their potential consequences. Each internal node represents a decision based on a specific feature, and each leaf node represents the predicted outcome (popularity score). Decision trees are capable of handling both numerical and categorical features, and they offer interpretability by visualizing the decision-making process.
-
-*Random Forest*
-
-Random forest is model that combines multiple decision trees to make predictions. It averages across the individual tree predictions. Random forest can handle non-linear relationships, capture feature interactions, and effectively handle high-dimensional data. It provides robust predictions and reduces the risk of overfitting compared to individual decision trees.
-
-*K-Nearest Neighbors (KNN)*
-
-K-Nearest Neighbors is a non-parametric algorithm that makes predictions based on the similarity of a given data point to its k nearest neighbors in the feature space. In our case, KNN is used to predict the popularity score by finding the k most similar instances in the training data. KNN is particularly suitable when similar shows or movies tend to have similar scores.
+This metric gives us the weighted distance our model is from the correct metric. The datasetFor example, if we had a rMSE of 21.7, this means that if we guessed the mean every time, we would be, on average, off by 21.7 points. So, our model should try to get a better rMSE than 21.7, or minimize this value. 
 
 *Additional Information*
 
 For all of these models, we defined the set of predictor variables to be the same. These predictors included genre information, duration, release year, type, rating, director's average score, cast's average score, and country. 
 
 Also, to evaluate all four model's performance and validate its predictive ability, we employed a cross-validation strategy. Code was written so that the dataset was divided into five subsets or folds, with each fold serving as a testing set while the remaining four folds were used for training. The grid search was performed within this cross-validation framework, optimizing the model's hyperparameters based on the negative root mean squared error (RMSE) metric. By utilizing cross-validation, we obtained robust estimates of the model's performance and ensured the generalization of the results to unseen data.
-
-#### Methods
 
 # Modeling
 
@@ -334,9 +313,7 @@ Also, to evaluate all four model's performance and validate its predictive abili
 
 ## Beta Regression
 
-- Similar to a logistic regression, it uses a sigmoid to predict a probability in [0,1].
-- The response can be scaled to a specified range ([0,100]).
-- It's hyperparameter is scale.
+Beta regression is a statistical model specifically designed for modeling continuous variables bounded between 0 and 1. In our case, we used beta regression to predict the popularity score, which ranges from 0 to 100. Beta regression takes into account the distributional characteristics of the data and can handle the inherent boundedness of the popularity score, allowing for accurate predictions. It uses an underlying logistic function to transform a linear regression.
 
 ![Sigmoid](Images/sigmoid.png)
 
@@ -345,22 +322,28 @@ We decided to fit a beta regression as opposed to a linear regression because we
 Our pipeline was structured as follows:
 
 ```{python}
-# | echo : False
+# | echo : false
+# | warning: false
 joblib.load("../Modeling/models/beta_regression.joblib")
 ```
 
 First, we selected the predictors we wanted to use. Then, we one hot encoded the categorical variables. Simultaneously, we dealt with missing numerical values by encoding if a value was missing and filling it with a 0 if it was. We add our model as the last step in the pipeline.
 
-We tuned the hyperparameter scale, and found that a scale of 1 was the best to use. The best cross-evaluation score for this model was a mean squared error of 19.26. We can loosely interpret this as saying our model is, on average, 19.26 imdb rating points off from the actual score.
+The best cross-evaluation score for this model was a **mean squared error** of **19.26**. We can loosely interpret this as saying our model is, on average, 19.26 imdb rating points off from the actual score.
+
+# Results
+
+
 
 #### KNN
 
 ## K-Nearest Neigbors
 
-- bullets
+K-Nearest Neighbors is a non-parametric algorithm that makes predictions based on the similarity of a given data point to its k nearest neighbors in the feature space. In our case, KNN is used to predict the popularity score by finding the k most similar instances in the training data. KNN is particularly suitable when similar shows or movies tend to have similar scores.
 
 ```{python}
-# | echo : False
+# | echo : false
+# | warning: false
 joblib.load("../Modeling/models/knn.joblib")
 ```
 
@@ -368,13 +351,11 @@ joblib.load("../Modeling/models/knn.joblib")
 
 ## Decision Tree Regressor
 
-- A series of yes/no questions
-- Questions start general and become more specific
-- Leaf nodes represent the predicted score
-- Will never predict greater than the maximum value or less than the minimum value
+Decision trees are intuitive models that create a flowchart-like structure of decisions and their potential consequences. Each internal node represents a decision based on a specific feature, and each leaf node represents the predicted outcome (popularity score). Decision trees are capable of handling both numerical and categorical features, and they offer interpretability by visualizing the decision-making process.
 
 ```{python}
-# | echo : False
+# | echo : false
+# | warning: false
 joblib.load("../Modeling/models/decision_tree.joblib")
 ```
 
@@ -382,29 +363,15 @@ joblib.load("../Modeling/models/decision_tree.joblib")
 
 ## Random Forest Regressor
 
-- Many decision trees working together
-- Each tree has a restricted set of parameters
+Random forest is model that combines multiple decision trees to make predictions. It averages across the individual tree predictions. Random forest can handle non-linear relationships, capture feature interactions, and effectively handle high-dimensional data. It provides robust predictions and reduces the risk of overfitting compared to individual decision trees.
 
 ```{python}
-# | echo : False
+# | echo : false
+# | warning: false
 joblib.load("../Modeling/models/random_forest.joblib")
 ```
 
 :::
-
-# Results
-
-TODO: Take Beta Regression and Random Forest and calculate test MSE. Compare with standard deviation, make inferences.
-
-Here we need to explain the code in fitting each of the models, such as the variables used, the number of folds, cross validation, etc.
-
-*Beta Regression*
-
-*Decision Tree*
-
-*Random Forest*
-
-*K-Nearest Neighbors (KNN)*
 
 #### App
 

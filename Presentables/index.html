@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,10 +21,9 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -51,13 +50,43 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -119,8 +148,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Home</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false" href="">Exploratory Data Analysis (EDA)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false" href="">Methods</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-5" role="tab" aria-controls="tabset-3-5" aria-selected="false" href="">Methods</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-6" role="tab" aria-controls="tabset-3-6" aria-selected="false" href="">App</a></li></ul>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Home</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false" href="">Exploratory Data Analysis (EDA)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false" href="">Methods</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-5" role="tab" aria-controls="tabset-3-5" aria-selected="false" href="">App</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p><strong>Abstract</strong></p>
@@ -155,8 +184,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://www.kaggle.com/datasets/shivamb/netflix-shows">Netflix</a></li>
 </ul>
 <p><strong>Cleaning</strong></p>
-<p>The main metric in this project we used to feed our models was the IMDB score of the Movie or TV Show. After combing the four datasets we found on Kaggle we discovered some of the shows had null values for their IMDB score. In order to replace these nulls we connected to an API that can be <a href="https://rapidapi.com/linaspurinis/api/mdblist">here</a>. With this API we were able to query by Movie or Show Title and get it’s IMDB score.</p>
-<p>The next part was cleaning and formating our data so that it can be vectorized for our models. Since cast, director, and country of origin were all in lists, we had to split each list value into their own rows. Due to this spliting we can turn our categorical variables into numerical representation in order for our model to read it.</p>
+<p>The main metric in this project that we used to feed our models was the IMDB score of the Movie or TV Show. After combing the four datasets we found on Kaggle we discovered some of the shows had null values for their IMDB score. In order to replace these nulls we connected to an API that can be found <a href="https://rapidapi.com/linaspurinis/api/mdblist">here</a>. With this API we were able to query by Movie or Show Title and get it’s IMDB score.</p>
+<p>The next part was the cleaning and formating of our data so that it can be vectorized for our models. Since cast, director, and country of origin were all in lists, we had to split each list value into their own rows. Due to this spliting we can turn our categorical variables into numerical representation in order for our model to read it.</p>
 </div>
 <div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
 <p>In this section we will explore and visualize our dataset to gain a better understanding of what we are working with, identify any obvious patterns, correlations, or trends.</p>
@@ -170,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="figures" class="level2">
 <h2 class="anchored" data-anchor-id="figures">Figures</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
+<div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">needs title</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">needs title</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">needs title</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">needs title</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">needs title</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false" href="">needs title</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false" href="">needs title</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
@@ -413,160 +442,159 @@ There are a total of 89 columns that were are working with.</code></pre>
 <pre><code>The number of rows in the data set is 4985</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="13">
+
 <div>
 
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Unnamed: 0</th>
-<th data-quarto-table-cell-role="th">title</th>
-<th data-quarto-table-cell-role="th">Number_MoviesShows_dir</th>
-<th data-quarto-table-cell-role="th">dir_average_score</th>
-<th data-quarto-table-cell-role="th">Number_MoviesShows_cast</th>
-<th data-quarto-table-cell-role="th">cast_average_score</th>
-<th data-quarto-table-cell-role="th">type</th>
-<th data-quarto-table-cell-role="th">director</th>
-<th data-quarto-table-cell-role="th">cast</th>
-<th data-quarto-table-cell-role="th">country</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">genre.Coming_of_Age</th>
-<th data-quarto-table-cell-role="th">genre.Anthology</th>
-<th data-quarto-table-cell-role="th">genre.Buddy</th>
-<th data-quarto-table-cell-role="th">genre.Parody</th>
-<th data-quarto-table-cell-role="th">genre.Spy/Espionage</th>
-<th data-quarto-table-cell-role="th">genre.Survival</th>
-<th data-quarto-table-cell-role="th">genre.Soap_Opera_/_Melodrama</th>
-<th data-quarto-table-cell-role="th">genre.Dance</th>
-<th data-quarto-table-cell-role="th">genre.Medical</th>
-<th data-quarto-table-cell-role="th">genre.Disaster</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0</td>
-<td>The Marksman</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>Movie</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>...</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>1</td>
-<td>Home Sweet Home</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>TV Show</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>...</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2</td>
-<td>America's Book of Secrets</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>TV Show</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>United States</td>
-<td>...</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>3</td>
-<td>Beyond Scared Straight</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>TV Show</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>United States</td>
-<td>...</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>4</td>
-<td>Hoarders</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>TV Show</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>United States</td>
-<td>...</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-</tr>
-</tbody>
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>title</th>
+      <th>Number_MoviesShows_dir</th>
+      <th>dir_average_score</th>
+      <th>Number_MoviesShows_cast</th>
+      <th>cast_average_score</th>
+      <th>type</th>
+      <th>director</th>
+      <th>cast</th>
+      <th>country</th>
+      <th>...</th>
+      <th>genre.Coming_of_Age</th>
+      <th>genre.Anthology</th>
+      <th>genre.Buddy</th>
+      <th>genre.Parody</th>
+      <th>genre.Spy/Espionage</th>
+      <th>genre.Survival</th>
+      <th>genre.Soap_Opera_/_Melodrama</th>
+      <th>genre.Dance</th>
+      <th>genre.Medical</th>
+      <th>genre.Disaster</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>The Marksman</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Movie</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Home Sweet Home</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>TV Show</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>America's Book of Secrets</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>TV Show</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>United States</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Beyond Scared Straight</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>TV Show</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>United States</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Hoarders</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>TV Show</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>United States</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
 </table>
-
 <p>5 rows × 89 columns</p>
 </div>
 </div>
@@ -587,38 +615,23 @@ There are a total of 89 columns that were are working with.</code></pre>
 <p>In this section, we describe the machine learning models employed for predicting the popularity score of TV shows and movies in our project. We utilized several models, including beta regression, decision tree, K-Nearest Neighbors (KNN), and random forest. Each of these models offers unique characteristics and can capture different aspects of the data to make accurate predictions.</p>
 <p><em>Train-Test Split</em></p>
 <p>To evaluate the performance of our machine learning models, we employed a train-test split approach. This process involves dividing our dataset, consisting of TV shows and movies, into two separate subsets: a training set and a testing set. The training set, which constitutes a majority of the data, was used to train our models to learn the underlying patterns and relationships between the features and the target variable, which in our case is the popularity score. The testing set, on the other hand, served as an unseen dataset to assess the models’ generalization ability and determine their predictive performance on new, unseen instances. By randomly assigning the data points to the training and testing sets, we ensured that the evaluation process is unbiased and representative of real-world scenarios. After fitting each model with the training set, we are left with the root mean squared error (rMSE) value.</p>
-<p>This metric gives us the weighted distance our model is from the correct metric. For example, if we had a rMSE of 21.7, this means that if we guessed the mean every time, we would be, on average, off by 21.7 points. So, our model should try to get a better rMSE than 21.7, or minimize this value.</p>
-<p><strong>Methods Used</strong></p>
-<p><em>Beta Regression</em></p>
-<p>Beta regression is a statistical model specifically designed for modeling continuous variables bounded between 0 and 1. In our case, we used beta regression to predict the popularity score, which ranges from 0 to 100. Beta regression takes into account the distributional characteristics of the data and can handle the inherent boundedness of the popularity score, allowing for accurate predictions.</p>
-<p><em>Decision Tree</em></p>
-<p>Decision trees are intuitive models that create a flowchart-like structure of decisions and their potential consequences. Each internal node represents a decision based on a specific feature, and each leaf node represents the predicted outcome (popularity score). Decision trees are capable of handling both numerical and categorical features, and they offer interpretability by visualizing the decision-making process.</p>
-<p><em>Random Forest</em></p>
-<p>Random forest is model that combines multiple decision trees to make predictions. It averages across the individual tree predictions. Random forest can handle non-linear relationships, capture feature interactions, and effectively handle high-dimensional data. It provides robust predictions and reduces the risk of overfitting compared to individual decision trees.</p>
-<p><em>K-Nearest Neighbors (KNN)</em></p>
-<p>K-Nearest Neighbors is a non-parametric algorithm that makes predictions based on the similarity of a given data point to its k nearest neighbors in the feature space. In our case, KNN is used to predict the popularity score by finding the k most similar instances in the training data. KNN is particularly suitable when similar shows or movies tend to have similar scores.</p>
+<p>This metric gives us the weighted distance our model is from the correct metric. The datasetFor example, if we had a rMSE of 21.7, this means that if we guessed the mean every time, we would be, on average, off by 21.7 points. So, our model should try to get a better rMSE than 21.7, or minimize this value.</p>
 <p><em>Additional Information</em></p>
 <p>For all of these models, we defined the set of predictor variables to be the same. These predictors included genre information, duration, release year, type, rating, director’s average score, cast’s average score, and country.</p>
 <p>Also, to evaluate all four model’s performance and validate its predictive ability, we employed a cross-validation strategy. Code was written so that the dataset was divided into five subsets or folds, with each fold serving as a testing set while the remaining four folds were used for training. The grid search was performed within this cross-validation framework, optimizing the model’s hyperparameters based on the negative root mean squared error (RMSE) metric. By utilizing cross-validation, we obtained robust estimates of the model’s performance and ensured the generalization of the results to unseen data.</p>
-</div>
-<div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
 <section id="modeling" class="level1">
 <h1>Modeling</h1>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
+<div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Beta Regression</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">KNN</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Decision Tree</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false" href="">Random Forest</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <section id="beta-regression-1" class="level2">
 <h2 class="anchored" data-anchor-id="beta-regression-1">Beta Regression</h2>
-<ul>
-<li>Similar to a logistic regression, it uses a sigmoid to predict a probability in [0,1].</li>
-<li>The response can be scaled to a specified range ([0,100]).</li>
-<li>It’s hyperparameter is scale.</li>
-</ul>
+<p>Beta regression is a statistical model specifically designed for modeling continuous variables bounded between 0 and 1. In our case, we used beta regression to predict the popularity score, which ranges from 0 to 100. Beta regression takes into account the distributional characteristics of the data and can handle the inherent boundedness of the popularity score, allowing for accurate predictions. It uses an underlying logistic function to transform a linear regression.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/sigmoid.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Sigmoid</figcaption>
+<p></p><figcaption class="figure-caption">Sigmoid</figcaption><p></p>
 </figure>
 </div>
 <p>We decided to fit a beta regression as opposed to a linear regression because we wanted the model to predict values only within the range [0,100]. A beta regression allows us to specify this range.</p>
@@ -642,7 +655,7 @@ There are a total of 89 columns that were are working with.</code></pre>
                  ColumnTransformer(remainder='passthrough',
                                    transformers=[('numericnaonehotencoder',
                                                   NumericNAOneHotEncoder(na_include=[0]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13568c280&gt;),
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12dbf7070&gt;),
                                                  ('onehotencoder',
                                                   OneHotEncoder(),
                                                   ['type', 'rating',
@@ -664,7 +677,7 @@ There are a total of 89 columns that were are working with.</code></pre>
                  ColumnTransformer(remainder='passthrough',
                                    transformers=[('numericnaonehotencoder',
                                                   NumericNAOneHotEncoder(na_include=[0]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13568c280&gt;),
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12dbf7070&gt;),
                                                  ('onehotencoder',
                                                   OneHotEncoder(),
                                                   ['type', 'rating',
@@ -682,21 +695,22 @@ There are a total of 89 columns that were are working with.</code></pre>
                         'genre.LGBTQ', 'genre.Adult_Animation', 'genre.Sitcom', ...])</pre></div></div></div><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox"><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">columntransform: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(remainder='passthrough',
                   transformers=[('numericnaonehotencoder',
                                  NumericNAOneHotEncoder(na_include=[0]),
-                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13568c280&gt;),
+                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12dbf7070&gt;),
                                 ('onehotencoder', OneHotEncoder(),
-                                 ['type', 'rating', 'country'])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">numericnaonehotencoder</label><div class="sk-toggleable__content"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13568c280&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"><label for="sk-estimator-id-5" class="sk-toggleable__label sk-toggleable__label-arrow">NumericNAOneHotEncoder</label><div class="sk-toggleable__content"><pre>NumericNAOneHotEncoder(na_include=[0])</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"><label for="sk-estimator-id-6" class="sk-toggleable__label sk-toggleable__label-arrow">onehotencoder</label><div class="sk-toggleable__content"><pre>['type', 'rating', 'country']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox"><label for="sk-estimator-id-7" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox"><label for="sk-estimator-id-8" class="sk-toggleable__label sk-toggleable__label-arrow">remainder</label><div class="sk-toggleable__content"><pre>['genre.Crime', 'genre.Drama', 'genre.Thriller', 'genre.Action', 'genre.Horror', 'genre.Science_Fiction', 'genre.Music', 'genre.Reality', 'genre.Romance', 'genre.Comedy', 'genre.Mystery', 'genre.Documentary', 'genre.History', 'genre.Teen', 'genre.Health_&amp;_Wellness', 'genre.Lifestyle', 'genre.Culture', 'genre.Black_Stories', 'genre.News', 'genre.Latino', 'genre.Adventure', 'genre.Anime', 'genre.Talk_Show', 'genre.Sketch_Comedy', 'genre.Family', 'genre.Kids', 'genre.Classics', 'genre.LGBTQ', 'genre.Adult_Animation', 'genre.Sitcom', 'genre.Cooking_&amp;_Food', 'genre.Sports', 'genre.Game_Shows', 'genre.International', 'genre.Cartoons', 'genre.Science_&amp;_Technology', 'genre.Stand_Up', 'genre.Special_Interest', 'genre.Suspense', 'genre.TV_Shows', 'genre.Arts,_Entertainment,_and_Culture', 'genre.Variety', 'genre.Fantasy', 'genre.Young_Adult_Audience', 'genre.Animation', 'genre.Western', 'genre.Arthouse', 'genre.Unscripted', 'genre.Faith_and_Spirituality', 'genre.Military_and_War', 'genre.Independent_Movies', 'genre.British_TV_Shows', 'genre.Romantic_Movies', 'genre.Musical', 'genre.Comedies', 'genre.Classic_Movies', "genre.Kids'_TV", 'genre.Nature', 'genre.Cult', 'genre.Korean_TV_Shows', 'genre.Movies', 'genre.Biographical', 'genre.Superhero', 'genre.Coming_of_Age', 'genre.Anthology', 'genre.Buddy', 'genre.Parody', 'genre.Spy/Espionage', 'genre.Survival', 'genre.Soap_Opera_/_Melodrama', 'genre.Dance', 'genre.Medical', 'genre.Disaster']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox"><label for="sk-estimator-id-9" class="sk-toggleable__label sk-toggleable__label-arrow">passthrough</label><div class="sk-toggleable__content"><pre>passthrough</pre></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox"><label for="sk-estimator-id-10" class="sk-toggleable__label sk-toggleable__label-arrow">BetaRegression</label><div class="sk-toggleable__content"><pre>BetaRegression(from_range=(0, 100))</pre></div></div></div></div></div></div></div>
+                                 ['type', 'rating', 'country'])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">numericnaonehotencoder</label><div class="sk-toggleable__content"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x12dbf7070&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"><label for="sk-estimator-id-5" class="sk-toggleable__label sk-toggleable__label-arrow">NumericNAOneHotEncoder</label><div class="sk-toggleable__content"><pre>NumericNAOneHotEncoder(na_include=[0])</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"><label for="sk-estimator-id-6" class="sk-toggleable__label sk-toggleable__label-arrow">onehotencoder</label><div class="sk-toggleable__content"><pre>['type', 'rating', 'country']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox"><label for="sk-estimator-id-7" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox"><label for="sk-estimator-id-8" class="sk-toggleable__label sk-toggleable__label-arrow">remainder</label><div class="sk-toggleable__content"><pre>['genre.Crime', 'genre.Drama', 'genre.Thriller', 'genre.Action', 'genre.Horror', 'genre.Science_Fiction', 'genre.Music', 'genre.Reality', 'genre.Romance', 'genre.Comedy', 'genre.Mystery', 'genre.Documentary', 'genre.History', 'genre.Teen', 'genre.Health_&amp;_Wellness', 'genre.Lifestyle', 'genre.Culture', 'genre.Black_Stories', 'genre.News', 'genre.Latino', 'genre.Adventure', 'genre.Anime', 'genre.Talk_Show', 'genre.Sketch_Comedy', 'genre.Family', 'genre.Kids', 'genre.Classics', 'genre.LGBTQ', 'genre.Adult_Animation', 'genre.Sitcom', 'genre.Cooking_&amp;_Food', 'genre.Sports', 'genre.Game_Shows', 'genre.International', 'genre.Cartoons', 'genre.Science_&amp;_Technology', 'genre.Stand_Up', 'genre.Special_Interest', 'genre.Suspense', 'genre.TV_Shows', 'genre.Arts,_Entertainment,_and_Culture', 'genre.Variety', 'genre.Fantasy', 'genre.Young_Adult_Audience', 'genre.Animation', 'genre.Western', 'genre.Arthouse', 'genre.Unscripted', 'genre.Faith_and_Spirituality', 'genre.Military_and_War', 'genre.Independent_Movies', 'genre.British_TV_Shows', 'genre.Romantic_Movies', 'genre.Musical', 'genre.Comedies', 'genre.Classic_Movies', "genre.Kids'_TV", 'genre.Nature', 'genre.Cult', 'genre.Korean_TV_Shows', 'genre.Movies', 'genre.Biographical', 'genre.Superhero', 'genre.Coming_of_Age', 'genre.Anthology', 'genre.Buddy', 'genre.Parody', 'genre.Spy/Espionage', 'genre.Survival', 'genre.Soap_Opera_/_Melodrama', 'genre.Dance', 'genre.Medical', 'genre.Disaster']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox"><label for="sk-estimator-id-9" class="sk-toggleable__label sk-toggleable__label-arrow">passthrough</label><div class="sk-toggleable__content"><pre>passthrough</pre></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox"><label for="sk-estimator-id-10" class="sk-toggleable__label sk-toggleable__label-arrow">BetaRegression</label><div class="sk-toggleable__content"><pre>BetaRegression(from_range=(0, 100))</pre></div></div></div></div></div></div></div>
 </div>
 </div>
 <p>First, we selected the predictors we wanted to use. Then, we one hot encoded the categorical variables. Simultaneously, we dealt with missing numerical values by encoding if a value was missing and filling it with a 0 if it was. We add our model as the last step in the pipeline.</p>
-<p>We tuned the hyperparameter scale, and found that a scale of 1 was the best to use. The best cross-evaluation score for this model was a mean squared error of 19.26. We can loosely interpret this as saying our model is, on average, 19.26 imdb rating points off from the actual score.</p>
+<p>The best cross-evaluation score for this model was a <strong>mean squared error</strong> of <strong>19.26</strong>. We can loosely interpret this as saying our model is, on average, 19.26 imdb rating points off from the actual score.</p>
+</section>
+<section id="results" class="level1">
+<h1>Results</h1>
 </section>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <section id="k-nearest-neigbors" class="level2">
 <h2 class="anchored" data-anchor-id="k-nearest-neigbors">K-Nearest Neigbors</h2>
-<ul>
-<li>bullets</li>
-</ul>
+<p>K-Nearest Neighbors is a non-parametric algorithm that makes predictions based on the similarity of a given data point to its k nearest neighbors in the feature space. In our case, KNN is used to predict the popularity score by finding the k most similar instances in the training data. KNN is particularly suitable when similar shows or movies tend to have similar scores.</p>
 <div class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display" data-execution_count="17">
 <style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[('predictors',
@@ -714,7 +728,7 @@ There are a total of 89 columns that were are working with.</code></pre>
                  ColumnTransformer(remainder='passthrough',
                                    transformers=[('numericnaonehotencoder',
                                                   NumericNAOneHotEncoder(na_include=[0]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13483a620&gt;),
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12dc2d670&gt;),
                                                  ('onehotencoder',
                                                   OneHotEncoder(),
                                                   ['type', 'rating',
@@ -736,7 +750,7 @@ There are a total of 89 columns that were are working with.</code></pre>
                  ColumnTransformer(remainder='passthrough',
                                    transformers=[('numericnaonehotencoder',
                                                   NumericNAOneHotEncoder(na_include=[0]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13483a620&gt;),
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12dc2d670&gt;),
                                                  ('onehotencoder',
                                                   OneHotEncoder(),
                                                   ['type', 'rating',
@@ -756,9 +770,9 @@ There are a total of 89 columns that were are working with.</code></pre>
                         'genre.LGBTQ', 'genre.Adult_Animation', 'genre.Sitcom', ...])</pre></div></div></div><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-13" type="checkbox"><label for="sk-estimator-id-13" class="sk-toggleable__label sk-toggleable__label-arrow">columntransform: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(remainder='passthrough',
                   transformers=[('numericnaonehotencoder',
                                  NumericNAOneHotEncoder(na_include=[0]),
-                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13483a620&gt;),
+                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12dc2d670&gt;),
                                 ('onehotencoder', OneHotEncoder(),
-                                 ['type', 'rating', 'country'])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-14" type="checkbox"><label for="sk-estimator-id-14" class="sk-toggleable__label sk-toggleable__label-arrow">numericnaonehotencoder</label><div class="sk-toggleable__content"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13483a620&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-15" type="checkbox"><label for="sk-estimator-id-15" class="sk-toggleable__label sk-toggleable__label-arrow">NumericNAOneHotEncoder</label><div class="sk-toggleable__content"><pre>NumericNAOneHotEncoder(na_include=[0])</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox"><label for="sk-estimator-id-16" class="sk-toggleable__label sk-toggleable__label-arrow">onehotencoder</label><div class="sk-toggleable__content"><pre>['type', 'rating', 'country']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-17" type="checkbox"><label for="sk-estimator-id-17" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-18" type="checkbox"><label for="sk-estimator-id-18" class="sk-toggleable__label sk-toggleable__label-arrow">remainder</label><div class="sk-toggleable__content"><pre>['genre.Crime', 'genre.Drama', 'genre.Thriller', 'genre.Action', 'genre.Horror', 'genre.Science_Fiction', 'genre.Music', 'genre.Reality', 'genre.Romance', 'genre.Comedy', 'genre.Mystery', 'genre.Documentary', 'genre.History', 'genre.Teen', 'genre.Health_&amp;_Wellness', 'genre.Lifestyle', 'genre.Culture', 'genre.Black_Stories', 'genre.News', 'genre.Latino', 'genre.Adventure', 'genre.Anime', 'genre.Talk_Show', 'genre.Sketch_Comedy', 'genre.Family', 'genre.Kids', 'genre.Classics', 'genre.LGBTQ', 'genre.Adult_Animation', 'genre.Sitcom', 'genre.Cooking_&amp;_Food', 'genre.Sports', 'genre.Game_Shows', 'genre.International', 'genre.Cartoons', 'genre.Science_&amp;_Technology', 'genre.Stand_Up', 'genre.Special_Interest', 'genre.Suspense', 'genre.TV_Shows', 'genre.Arts,_Entertainment,_and_Culture', 'genre.Variety', 'genre.Fantasy', 'genre.Young_Adult_Audience', 'genre.Animation', 'genre.Western', 'genre.Arthouse', 'genre.Unscripted', 'genre.Faith_and_Spirituality', 'genre.Military_and_War', 'genre.Independent_Movies', 'genre.British_TV_Shows', 'genre.Romantic_Movies', 'genre.Musical', 'genre.Comedies', 'genre.Classic_Movies', "genre.Kids'_TV", 'genre.Nature', 'genre.Cult', 'genre.Korean_TV_Shows', 'genre.Movies', 'genre.Biographical', 'genre.Superhero', 'genre.Coming_of_Age', 'genre.Anthology', 'genre.Buddy', 'genre.Parody', 'genre.Spy/Espionage', 'genre.Survival', 'genre.Soap_Opera_/_Melodrama', 'genre.Dance', 'genre.Medical', 'genre.Disaster']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-19" type="checkbox"><label for="sk-estimator-id-19" class="sk-toggleable__label sk-toggleable__label-arrow">passthrough</label><div class="sk-toggleable__content"><pre>passthrough</pre></div></div></div></div></div></div></div></div><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-20" type="checkbox"><label for="sk-estimator-id-20" class="sk-toggleable__label sk-toggleable__label-arrow">knn: TransformedTargetRegressor</label><div class="sk-toggleable__content"><pre>TransformedTargetRegressor(regressor=KNeighborsRegressor(n_neighbors=17,
+                                 ['type', 'rating', 'country'])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-14" type="checkbox"><label for="sk-estimator-id-14" class="sk-toggleable__label sk-toggleable__label-arrow">numericnaonehotencoder</label><div class="sk-toggleable__content"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x12dc2d670&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-15" type="checkbox"><label for="sk-estimator-id-15" class="sk-toggleable__label sk-toggleable__label-arrow">NumericNAOneHotEncoder</label><div class="sk-toggleable__content"><pre>NumericNAOneHotEncoder(na_include=[0])</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox"><label for="sk-estimator-id-16" class="sk-toggleable__label sk-toggleable__label-arrow">onehotencoder</label><div class="sk-toggleable__content"><pre>['type', 'rating', 'country']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-17" type="checkbox"><label for="sk-estimator-id-17" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-18" type="checkbox"><label for="sk-estimator-id-18" class="sk-toggleable__label sk-toggleable__label-arrow">remainder</label><div class="sk-toggleable__content"><pre>['genre.Crime', 'genre.Drama', 'genre.Thriller', 'genre.Action', 'genre.Horror', 'genre.Science_Fiction', 'genre.Music', 'genre.Reality', 'genre.Romance', 'genre.Comedy', 'genre.Mystery', 'genre.Documentary', 'genre.History', 'genre.Teen', 'genre.Health_&amp;_Wellness', 'genre.Lifestyle', 'genre.Culture', 'genre.Black_Stories', 'genre.News', 'genre.Latino', 'genre.Adventure', 'genre.Anime', 'genre.Talk_Show', 'genre.Sketch_Comedy', 'genre.Family', 'genre.Kids', 'genre.Classics', 'genre.LGBTQ', 'genre.Adult_Animation', 'genre.Sitcom', 'genre.Cooking_&amp;_Food', 'genre.Sports', 'genre.Game_Shows', 'genre.International', 'genre.Cartoons', 'genre.Science_&amp;_Technology', 'genre.Stand_Up', 'genre.Special_Interest', 'genre.Suspense', 'genre.TV_Shows', 'genre.Arts,_Entertainment,_and_Culture', 'genre.Variety', 'genre.Fantasy', 'genre.Young_Adult_Audience', 'genre.Animation', 'genre.Western', 'genre.Arthouse', 'genre.Unscripted', 'genre.Faith_and_Spirituality', 'genre.Military_and_War', 'genre.Independent_Movies', 'genre.British_TV_Shows', 'genre.Romantic_Movies', 'genre.Musical', 'genre.Comedies', 'genre.Classic_Movies', "genre.Kids'_TV", 'genre.Nature', 'genre.Cult', 'genre.Korean_TV_Shows', 'genre.Movies', 'genre.Biographical', 'genre.Superhero', 'genre.Coming_of_Age', 'genre.Anthology', 'genre.Buddy', 'genre.Parody', 'genre.Spy/Espionage', 'genre.Survival', 'genre.Soap_Opera_/_Melodrama', 'genre.Dance', 'genre.Medical', 'genre.Disaster']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-19" type="checkbox"><label for="sk-estimator-id-19" class="sk-toggleable__label sk-toggleable__label-arrow">passthrough</label><div class="sk-toggleable__content"><pre>passthrough</pre></div></div></div></div></div></div></div></div><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-20" type="checkbox"><label for="sk-estimator-id-20" class="sk-toggleable__label sk-toggleable__label-arrow">knn: TransformedTargetRegressor</label><div class="sk-toggleable__content"><pre>TransformedTargetRegressor(regressor=KNeighborsRegressor(n_neighbors=17,
                                                          weights='distance'))</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-21" type="checkbox"><label for="sk-estimator-id-21" class="sk-toggleable__label sk-toggleable__label-arrow">regressor: KNeighborsRegressor</label><div class="sk-toggleable__content"><pre>KNeighborsRegressor(n_neighbors=17, weights='distance')</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-22" type="checkbox"><label for="sk-estimator-id-22" class="sk-toggleable__label sk-toggleable__label-arrow">KNeighborsRegressor</label><div class="sk-toggleable__content"><pre>KNeighborsRegressor(n_neighbors=17, weights='distance')</pre></div></div></div></div></div></div></div></div></div></div></div></div>
 </div>
 </div>
@@ -767,12 +781,7 @@ There are a total of 89 columns that were are working with.</code></pre>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <section id="decision-tree-regressor" class="level2">
 <h2 class="anchored" data-anchor-id="decision-tree-regressor">Decision Tree Regressor</h2>
-<ul>
-<li>A series of yes/no questions</li>
-<li>Questions start general and become more specific</li>
-<li>Leaf nodes represent the predicted score</li>
-<li>Will never predict greater than the maximum value or less than the minimum value</li>
-</ul>
+<p>Decision trees are intuitive models that create a flowchart-like structure of decisions and their potential consequences. Each internal node represents a decision based on a specific feature, and each leaf node represents the predicted outcome (popularity score). Decision trees are capable of handling both numerical and categorical features, and they offer interpretability by visualizing the decision-making process.</p>
 <div class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display" data-execution_count="18">
 <style>#sk-container-id-3 {color: black;background-color: white;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[('predictors',
@@ -791,7 +800,7 @@ There are a total of 89 columns that were are working with.</code></pre>
                  ColumnTransformer(remainder='passthrough',
                                    transformers=[('numericnaonehotencoder',
                                                   NumericNAOneHotEncoder(na_include=[0]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1347d9ae0&gt;),
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12e097790&gt;),
                                                  ('onehotencoder',
                                                   OneHotEncoder(),
                                                   ['type', 'rating',
@@ -813,7 +822,7 @@ There are a total of 89 columns that were are working with.</code></pre>
                  ColumnTransformer(remainder='passthrough',
                                    transformers=[('numericnaonehotencoder',
                                                   NumericNAOneHotEncoder(na_include=[0]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1347d9ae0&gt;),
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12e097790&gt;),
                                                  ('onehotencoder',
                                                   OneHotEncoder(),
                                                   ['type', 'rating',
@@ -832,9 +841,9 @@ There are a total of 89 columns that were are working with.</code></pre>
                         'genre.LGBTQ', 'genre.Adult_Animation', 'genre.Sitcom', ...])</pre></div></div></div><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-25" type="checkbox"><label for="sk-estimator-id-25" class="sk-toggleable__label sk-toggleable__label-arrow">columntransform: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(remainder='passthrough',
                   transformers=[('numericnaonehotencoder',
                                  NumericNAOneHotEncoder(na_include=[0]),
-                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1347d9ae0&gt;),
+                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12e097790&gt;),
                                 ('onehotencoder', OneHotEncoder(),
-                                 ['type', 'rating', 'country'])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-26" type="checkbox"><label for="sk-estimator-id-26" class="sk-toggleable__label sk-toggleable__label-arrow">numericnaonehotencoder</label><div class="sk-toggleable__content"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1347d9ae0&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-27" type="checkbox"><label for="sk-estimator-id-27" class="sk-toggleable__label sk-toggleable__label-arrow">NumericNAOneHotEncoder</label><div class="sk-toggleable__content"><pre>NumericNAOneHotEncoder(na_include=[0])</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-28" type="checkbox"><label for="sk-estimator-id-28" class="sk-toggleable__label sk-toggleable__label-arrow">onehotencoder</label><div class="sk-toggleable__content"><pre>['type', 'rating', 'country']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-29" type="checkbox"><label for="sk-estimator-id-29" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-30" type="checkbox"><label for="sk-estimator-id-30" class="sk-toggleable__label sk-toggleable__label-arrow">remainder</label><div class="sk-toggleable__content"><pre>['genre.Crime', 'genre.Drama', 'genre.Thriller', 'genre.Action', 'genre.Horror', 'genre.Science_Fiction', 'genre.Music', 'genre.Reality', 'genre.Romance', 'genre.Comedy', 'genre.Mystery', 'genre.Documentary', 'genre.History', 'genre.Teen', 'genre.Health_&amp;_Wellness', 'genre.Lifestyle', 'genre.Culture', 'genre.Black_Stories', 'genre.News', 'genre.Latino', 'genre.Adventure', 'genre.Anime', 'genre.Talk_Show', 'genre.Sketch_Comedy', 'genre.Family', 'genre.Kids', 'genre.Classics', 'genre.LGBTQ', 'genre.Adult_Animation', 'genre.Sitcom', 'genre.Cooking_&amp;_Food', 'genre.Sports', 'genre.Game_Shows', 'genre.International', 'genre.Cartoons', 'genre.Science_&amp;_Technology', 'genre.Stand_Up', 'genre.Special_Interest', 'genre.Suspense', 'genre.TV_Shows', 'genre.Arts,_Entertainment,_and_Culture', 'genre.Variety', 'genre.Fantasy', 'genre.Young_Adult_Audience', 'genre.Animation', 'genre.Western', 'genre.Arthouse', 'genre.Unscripted', 'genre.Faith_and_Spirituality', 'genre.Military_and_War', 'genre.Independent_Movies', 'genre.British_TV_Shows', 'genre.Romantic_Movies', 'genre.Musical', 'genre.Comedies', 'genre.Classic_Movies', "genre.Kids'_TV", 'genre.Nature', 'genre.Cult', 'genre.Korean_TV_Shows', 'genre.Movies', 'genre.Biographical', 'genre.Superhero', 'genre.Coming_of_Age', 'genre.Anthology', 'genre.Buddy', 'genre.Parody', 'genre.Spy/Espionage', 'genre.Survival', 'genre.Soap_Opera_/_Melodrama', 'genre.Dance', 'genre.Medical', 'genre.Disaster']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-31" type="checkbox"><label for="sk-estimator-id-31" class="sk-toggleable__label sk-toggleable__label-arrow">passthrough</label><div class="sk-toggleable__content"><pre>passthrough</pre></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-32" type="checkbox"><label for="sk-estimator-id-32" class="sk-toggleable__label sk-toggleable__label-arrow">DecisionTreeRegressor</label><div class="sk-toggleable__content"><pre>DecisionTreeRegressor(max_depth=10, min_samples_leaf=8)</pre></div></div></div></div></div></div></div>
+                                 ['type', 'rating', 'country'])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-26" type="checkbox"><label for="sk-estimator-id-26" class="sk-toggleable__label sk-toggleable__label-arrow">numericnaonehotencoder</label><div class="sk-toggleable__content"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x12e097790&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-27" type="checkbox"><label for="sk-estimator-id-27" class="sk-toggleable__label sk-toggleable__label-arrow">NumericNAOneHotEncoder</label><div class="sk-toggleable__content"><pre>NumericNAOneHotEncoder(na_include=[0])</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-28" type="checkbox"><label for="sk-estimator-id-28" class="sk-toggleable__label sk-toggleable__label-arrow">onehotencoder</label><div class="sk-toggleable__content"><pre>['type', 'rating', 'country']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-29" type="checkbox"><label for="sk-estimator-id-29" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-30" type="checkbox"><label for="sk-estimator-id-30" class="sk-toggleable__label sk-toggleable__label-arrow">remainder</label><div class="sk-toggleable__content"><pre>['genre.Crime', 'genre.Drama', 'genre.Thriller', 'genre.Action', 'genre.Horror', 'genre.Science_Fiction', 'genre.Music', 'genre.Reality', 'genre.Romance', 'genre.Comedy', 'genre.Mystery', 'genre.Documentary', 'genre.History', 'genre.Teen', 'genre.Health_&amp;_Wellness', 'genre.Lifestyle', 'genre.Culture', 'genre.Black_Stories', 'genre.News', 'genre.Latino', 'genre.Adventure', 'genre.Anime', 'genre.Talk_Show', 'genre.Sketch_Comedy', 'genre.Family', 'genre.Kids', 'genre.Classics', 'genre.LGBTQ', 'genre.Adult_Animation', 'genre.Sitcom', 'genre.Cooking_&amp;_Food', 'genre.Sports', 'genre.Game_Shows', 'genre.International', 'genre.Cartoons', 'genre.Science_&amp;_Technology', 'genre.Stand_Up', 'genre.Special_Interest', 'genre.Suspense', 'genre.TV_Shows', 'genre.Arts,_Entertainment,_and_Culture', 'genre.Variety', 'genre.Fantasy', 'genre.Young_Adult_Audience', 'genre.Animation', 'genre.Western', 'genre.Arthouse', 'genre.Unscripted', 'genre.Faith_and_Spirituality', 'genre.Military_and_War', 'genre.Independent_Movies', 'genre.British_TV_Shows', 'genre.Romantic_Movies', 'genre.Musical', 'genre.Comedies', 'genre.Classic_Movies', "genre.Kids'_TV", 'genre.Nature', 'genre.Cult', 'genre.Korean_TV_Shows', 'genre.Movies', 'genre.Biographical', 'genre.Superhero', 'genre.Coming_of_Age', 'genre.Anthology', 'genre.Buddy', 'genre.Parody', 'genre.Spy/Espionage', 'genre.Survival', 'genre.Soap_Opera_/_Melodrama', 'genre.Dance', 'genre.Medical', 'genre.Disaster']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-31" type="checkbox"><label for="sk-estimator-id-31" class="sk-toggleable__label sk-toggleable__label-arrow">passthrough</label><div class="sk-toggleable__content"><pre>passthrough</pre></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-32" type="checkbox"><label for="sk-estimator-id-32" class="sk-toggleable__label sk-toggleable__label-arrow">DecisionTreeRegressor</label><div class="sk-toggleable__content"><pre>DecisionTreeRegressor(max_depth=10, min_samples_leaf=8)</pre></div></div></div></div></div></div></div>
 </div>
 </div>
 </section>
@@ -842,10 +851,7 @@ There are a total of 89 columns that were are working with.</code></pre>
 <div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
 <section id="random-forest-regressor" class="level2">
 <h2 class="anchored" data-anchor-id="random-forest-regressor">Random Forest Regressor</h2>
-<ul>
-<li>Many decision trees working together</li>
-<li>Each tree has a restricted set of parameters</li>
-</ul>
+<p>Random forest is model that combines multiple decision trees to make predictions. It averages across the individual tree predictions. Random forest can handle non-linear relationships, capture feature interactions, and effectively handle high-dimensional data. It provides robust predictions and reduces the risk of overfitting compared to individual decision trees.</p>
 <div class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display" data-execution_count="19">
 <style>#sk-container-id-4 {color: black;background-color: white;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[('predictors',
@@ -865,7 +871,7 @@ There are a total of 89 columns that were are working with.</code></pre>
                  ColumnTransformer(remainder='passthrough',
                                    transformers=[('numericnaonehotencoder',
                                                   NumericNAOneHotEncoder(na_include=[0]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x10e90b610&gt;),
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12dc2d940&gt;),
                                                  ('onehotencoder',
                                                   OneHotEncoder(),
                                                   ['type', 'rating',
@@ -888,7 +894,7 @@ There are a total of 89 columns that were are working with.</code></pre>
                  ColumnTransformer(remainder='passthrough',
                                    transformers=[('numericnaonehotencoder',
                                                   NumericNAOneHotEncoder(na_include=[0]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x10e90b610&gt;),
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12dc2d940&gt;),
                                                  ('onehotencoder',
                                                   OneHotEncoder(),
                                                   ['type', 'rating',
@@ -907,9 +913,9 @@ There are a total of 89 columns that were are working with.</code></pre>
                         'genre.LGBTQ', 'genre.Adult_Animation', 'genre.Sitcom', ...])</pre></div></div></div><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-35" type="checkbox"><label for="sk-estimator-id-35" class="sk-toggleable__label sk-toggleable__label-arrow">columntransform: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(remainder='passthrough',
                   transformers=[('numericnaonehotencoder',
                                  NumericNAOneHotEncoder(na_include=[0]),
-                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x10e90b610&gt;),
+                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12dc2d940&gt;),
                                 ('onehotencoder', OneHotEncoder(),
-                                 ['type', 'rating', 'country'])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-36" type="checkbox"><label for="sk-estimator-id-36" class="sk-toggleable__label sk-toggleable__label-arrow">numericnaonehotencoder</label><div class="sk-toggleable__content"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x10e90b610&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-37" type="checkbox"><label for="sk-estimator-id-37" class="sk-toggleable__label sk-toggleable__label-arrow">NumericNAOneHotEncoder</label><div class="sk-toggleable__content"><pre>NumericNAOneHotEncoder(na_include=[0])</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-38" type="checkbox"><label for="sk-estimator-id-38" class="sk-toggleable__label sk-toggleable__label-arrow">onehotencoder</label><div class="sk-toggleable__content"><pre>['type', 'rating', 'country']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-39" type="checkbox"><label for="sk-estimator-id-39" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-40" type="checkbox"><label for="sk-estimator-id-40" class="sk-toggleable__label sk-toggleable__label-arrow">remainder</label><div class="sk-toggleable__content"><pre>['genre.Crime', 'genre.Drama', 'genre.Thriller', 'genre.Action', 'genre.Horror', 'genre.Science_Fiction', 'genre.Music', 'genre.Reality', 'genre.Romance', 'genre.Comedy', 'genre.Mystery', 'genre.Documentary', 'genre.History', 'genre.Teen', 'genre.Health_&amp;_Wellness', 'genre.Lifestyle', 'genre.Culture', 'genre.Black_Stories', 'genre.News', 'genre.Latino', 'genre.Adventure', 'genre.Anime', 'genre.Talk_Show', 'genre.Sketch_Comedy', 'genre.Family', 'genre.Kids', 'genre.Classics', 'genre.LGBTQ', 'genre.Adult_Animation', 'genre.Sitcom', 'genre.Cooking_&amp;_Food', 'genre.Sports', 'genre.Game_Shows', 'genre.International', 'genre.Cartoons', 'genre.Science_&amp;_Technology', 'genre.Stand_Up', 'genre.Special_Interest', 'genre.Suspense', 'genre.TV_Shows', 'genre.Arts,_Entertainment,_and_Culture', 'genre.Variety', 'genre.Fantasy', 'genre.Young_Adult_Audience', 'genre.Animation', 'genre.Western', 'genre.Arthouse', 'genre.Unscripted', 'genre.Faith_and_Spirituality', 'genre.Military_and_War', 'genre.Independent_Movies', 'genre.British_TV_Shows', 'genre.Romantic_Movies', 'genre.Musical', 'genre.Comedies', 'genre.Classic_Movies', "genre.Kids'_TV", 'genre.Nature', 'genre.Cult', 'genre.Korean_TV_Shows', 'genre.Movies', 'genre.Biographical', 'genre.Superhero', 'genre.Coming_of_Age', 'genre.Anthology', 'genre.Buddy', 'genre.Parody', 'genre.Spy/Espionage', 'genre.Survival', 'genre.Soap_Opera_/_Melodrama', 'genre.Dance', 'genre.Medical', 'genre.Disaster']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-41" type="checkbox"><label for="sk-estimator-id-41" class="sk-toggleable__label sk-toggleable__label-arrow">passthrough</label><div class="sk-toggleable__content"><pre>passthrough</pre></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-42" type="checkbox"><label for="sk-estimator-id-42" class="sk-toggleable__label sk-toggleable__label-arrow">RandomForestRegressor</label><div class="sk-toggleable__content"><pre>RandomForestRegressor(max_depth=10, min_samples_leaf=2)</pre></div></div></div></div></div></div></div>
+                                 ['type', 'rating', 'country'])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-36" type="checkbox"><label for="sk-estimator-id-36" class="sk-toggleable__label sk-toggleable__label-arrow">numericnaonehotencoder</label><div class="sk-toggleable__content"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x12dc2d940&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-37" type="checkbox"><label for="sk-estimator-id-37" class="sk-toggleable__label sk-toggleable__label-arrow">NumericNAOneHotEncoder</label><div class="sk-toggleable__content"><pre>NumericNAOneHotEncoder(na_include=[0])</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-38" type="checkbox"><label for="sk-estimator-id-38" class="sk-toggleable__label sk-toggleable__label-arrow">onehotencoder</label><div class="sk-toggleable__content"><pre>['type', 'rating', 'country']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-39" type="checkbox"><label for="sk-estimator-id-39" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-40" type="checkbox"><label for="sk-estimator-id-40" class="sk-toggleable__label sk-toggleable__label-arrow">remainder</label><div class="sk-toggleable__content"><pre>['genre.Crime', 'genre.Drama', 'genre.Thriller', 'genre.Action', 'genre.Horror', 'genre.Science_Fiction', 'genre.Music', 'genre.Reality', 'genre.Romance', 'genre.Comedy', 'genre.Mystery', 'genre.Documentary', 'genre.History', 'genre.Teen', 'genre.Health_&amp;_Wellness', 'genre.Lifestyle', 'genre.Culture', 'genre.Black_Stories', 'genre.News', 'genre.Latino', 'genre.Adventure', 'genre.Anime', 'genre.Talk_Show', 'genre.Sketch_Comedy', 'genre.Family', 'genre.Kids', 'genre.Classics', 'genre.LGBTQ', 'genre.Adult_Animation', 'genre.Sitcom', 'genre.Cooking_&amp;_Food', 'genre.Sports', 'genre.Game_Shows', 'genre.International', 'genre.Cartoons', 'genre.Science_&amp;_Technology', 'genre.Stand_Up', 'genre.Special_Interest', 'genre.Suspense', 'genre.TV_Shows', 'genre.Arts,_Entertainment,_and_Culture', 'genre.Variety', 'genre.Fantasy', 'genre.Young_Adult_Audience', 'genre.Animation', 'genre.Western', 'genre.Arthouse', 'genre.Unscripted', 'genre.Faith_and_Spirituality', 'genre.Military_and_War', 'genre.Independent_Movies', 'genre.British_TV_Shows', 'genre.Romantic_Movies', 'genre.Musical', 'genre.Comedies', 'genre.Classic_Movies', "genre.Kids'_TV", 'genre.Nature', 'genre.Cult', 'genre.Korean_TV_Shows', 'genre.Movies', 'genre.Biographical', 'genre.Superhero', 'genre.Coming_of_Age', 'genre.Anthology', 'genre.Buddy', 'genre.Parody', 'genre.Spy/Espionage', 'genre.Survival', 'genre.Soap_Opera_/_Melodrama', 'genre.Dance', 'genre.Medical', 'genre.Disaster']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-41" type="checkbox"><label for="sk-estimator-id-41" class="sk-toggleable__label sk-toggleable__label-arrow">passthrough</label><div class="sk-toggleable__content"><pre>passthrough</pre></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-42" type="checkbox"><label for="sk-estimator-id-42" class="sk-toggleable__label sk-toggleable__label-arrow">RandomForestRegressor</label><div class="sk-toggleable__content"><pre>RandomForestRegressor(max_depth=10, min_samples_leaf=2)</pre></div></div></div></div></div></div></div>
 </div>
 </div>
 </section>
@@ -917,17 +923,8 @@ There are a total of 89 columns that were are working with.</code></pre>
 </div>
 </div>
 </section>
-<section id="results" class="level1">
-<h1>Results</h1>
-<p>TODO: Take Beta Regression and Random Forest and calculate test MSE. Compare with standard deviation, make inferences.</p>
-<p>Here we need to explain the code in fitting each of the models, such as the variables used, the number of folds, cross validation, etc.</p>
-<p><em>Beta Regression</em></p>
-<p><em>Decision Tree</em></p>
-<p><em>Random Forest</em></p>
-<p><em>K-Nearest Neighbors (KNN)</em></p>
-</section>
 </div>
-<div id="tabset-3-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-6-tab">
+<div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
 <p>Here, you can input parameters for a Movie or TV Show and see our model’s prediction for your show.</p>
 <iframe src="https://tv-popularity-model.streamlit.app//?embed=true" height="750" style="width:100%;border:none;">
 </iframe>
@@ -1079,23 +1076,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -1160,92 +1143,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
