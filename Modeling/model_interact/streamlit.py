@@ -42,14 +42,14 @@ cast_score_df_filename = largest_folder + "/Data/data/cast_scores.csv"
 tv_df = pd.read_csv(tv_df_filename)
 dir_score_df = pd.read_csv(dir_score_df_filename)
 cast_score_df = pd.read_csv(cast_score_df_filename)
-dir_av_score_dict = dict(zip(dir_score_df["director"],dir_score_df["dir_average_score"])).pop('20th_century_fox')
+dir_av_score_dict = dict(zip(dir_score_df["director"],dir_score_df["dir_average_score"]))
 cast_av_score_dict = dict(zip(cast_score_df["cast"],cast_score_df["cast_average_score"]))
 
 
 
 
 genres = tv_df.columns[tv_df.columns.str.startswith('genre.')]
-directors = dir_av_score_dict.keys()
+directors = dir_av_score_dict.keys().remove('20th_century_fox')
 cast_members = cast_av_score_dict.keys()
 countries = supersplit(tv_df['country'])
 pretty_genre = lambda x: x[6:].replace("_"," ")
