@@ -27,7 +27,25 @@ The present article analyzes a dataset containing information about titles on di
 
 The streaming services industry has seen rapid growth in recent years and has undoubtedly revolutionized the way we consume content. With numerous platforms offering a vast array of media types, it has become increasingly important for creators and streaming platforms to understand what makes a certain movie or TV show popular. This project aims to explore the Kaggle dataset and uncover the key factors that contribute to their popularity through fitting a series of different models.
 
-**Variable Description**
+#### Data
+
+TODO:
+
+- Add how we dealt with genre, making each column indicate if that genre was present
+
+## Source
+
+We combined the below four datasets found on Kaggle to get a comprehensive dataset of movies and TV shows available on the major streaming platforms.
+
+-   [Disney+](https://www.kaggle.com/datasets/shivamb/disney-movies-and-tv-shows)
+-   [Hulu](https://www.kaggle.com/datasets/shivamb/hulu-movies-and-tv-shows)
+-   [Amazon Prime](https://www.kaggle.com/datasets/shivamb/amazon-prime-movies-and-tv-shows)
+-   [Netflix](https://www.kaggle.com/datasets/shivamb/netflix-shows)
+
+*** Link where we got the API / which one it was ***
+ 
+
+## Variable Description
 
 The dataset contains both categorical and numeric variables which may provide insights for our analysis. Here is a brief description of the key variables:
 
@@ -46,20 +64,25 @@ The dataset contains both categorical and numeric variables which may provide in
 
 Together, these variables provide a set of features that allow us to analyze and understand the characteristics that determine the popularity of TV shows. By exploring these variables and their relationships, we can gain insights into the factors that contribute to a show's popularity, like the impact of different genres or countries of origin, and begin to create better shows that more people would watch.
 
-#### Data
+## Cleaning
 
-**Source**
+### Original Data
+- Original state of the data
 
-We combined the below four datasets found on Kaggle to get a comprehensive dataset of movies and TV shows available on the major streaming platforms.
+### API
+- How we pulled the score using the API
 
--   [Disney+](https://www.kaggle.com/datasets/shivamb/disney-movies-and-tv-shows)
--   [Hulu](https://www.kaggle.com/datasets/shivamb/hulu-movies-and-tv-shows)
--   [Amazon Prime](https://www.kaggle.com/datasets/shivamb/amazon-prime-movies-and-tv-shows)
--   [Netflix](https://www.kaggle.com/datasets/shivamb/netflix-shows)
+### Director and cast data
+- Talk about the chalenges of working with cast and director data (one hot encoding them would mean a lot of predictors)
+- Add how you calculated average director and cast score, and why it is justified without data leakage (the splitting into two sets and only calculating on one thing)
 
-**Cleaning**
+### Turning Lists into Factors
+- listed_in to genre
+- Talk about why it was justified to reduce some of the ratings, ect (not rated -> NR)
 
-The main metric in this project that we used to feed our models was the IMDB score of the Movie or TV Show. After combing the four datasets we found on Kaggle we discovered some of the shows had null values for their IMDB score. In order to replace these nulls we connected to an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). With this API we were able to query by Movie or Show Title and get it's IMDB score.
+## Overview
+
+The response varaible that we used for prediction was the IMDB score of the Movie or TV Show. After combing the four datasets we found on Kaggle we discovered some of the shows had null values for their IMDB score. In order to replace these nulls we connected to an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). With this API we were able to query by Movie or Show Title and get it's IMDB score.
 
 The next part was the cleaning and formating of our data so that it can be vectorized for our models. Since cast, director, and country of origin were all in lists, we had to split each list value into their own rows. Due to this spliting we can turn our categorical variables into numerical representation in order for our model to read it.
 
