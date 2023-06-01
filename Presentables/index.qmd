@@ -59,9 +59,9 @@ We combined the below four datasets found on Kaggle to get a comprehensive datas
 
 **Cleaning** 
 
-The main metric in this project we used to feed our models was the IMDB score of the Movie or TV Show. After combing the four datasets we found on Kaggle we discovered some of the shows had null values for their IMDB score. In order to replace these nulls we connected to an API that can be [here](https://rapidapi.com/linaspurinis/api/mdblist). With this API we were able to query by Movie or Show Title and get it's IMDB score. 
+The main metric in this project that we used to feed our models was the IMDB score of the Movie or TV Show. After combing the four datasets we found on Kaggle we discovered some of the shows had null values for their IMDB score. In order to replace these nulls we connected to an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). With this API we were able to query by Movie or Show Title and get it's IMDB score. 
 
-The next part was cleaning and formating our data so that it can be vectorized for our models. Since cast, director, and country of origin were all in lists, we had to split each list value into their own rows. Due to this spliting we can turn our categorical variables into numerical representation in order for our model to read it. 
+The next part was the cleaning and formating of our data so that it can be vectorized for our models. Since cast, director, and country of origin were all in lists, we had to split each list value into their own rows. Due to this spliting we can turn our categorical variables into numerical representation in order for our model to read it. 
 
 
 #### Exploratory Data Analysis (EDA)
