@@ -282,18 +282,6 @@ data.head()
 data.isna().sum(); print(data.shape)
 ```
 
-#### App
-
-Here, you can input parameters for a Movie or TV Show and see our model's prediction for your show.
-
-<iframe
-  src="https://tv-popularity-model.streamlit.app//?embed=true"
-  height="750"
-  style="width:100%;border:none;"
-></iframe>
-
-#### Methods
-
 ```{python}
 # | echo: false
 import sys
@@ -340,6 +328,7 @@ For all of these models, we defined the set of predictor variables to be the sam
 
 Also, to evaluate all four model's performance and validate its predictive ability, we employed a cross-validation strategy. Code was written so that the dataset was divided into five subsets or folds, with each fold serving as a testing set while the remaining four folds were used for training. The grid search was performed within this cross-validation framework, optimizing the model's hyperparameters based on the negative root mean squared error (RMSE) metric. By utilizing cross-validation, we obtained robust estimates of the model's performance and ensured the generalization of the results to unseen data.
 
+#### Methods
 
 # Modeling
 
@@ -422,8 +411,12 @@ Here we need to explain the code in fitting each of the models, such as the vari
 
 #### App
 
-<iframe src="https://tv-popularity-model.streamlit.app//?embed=true" height="750" style="width:100%;border:none;">
+Here, you can input parameters for a Movie or TV Show and see our model's prediction for your show.
 
-</iframe>
+<iframe
+  src="https://tv-popularity-model.streamlit.app//?embed=true"
+  height="750"
+  style="width:100%;border:none;"
+></iframe>
 
 :::
