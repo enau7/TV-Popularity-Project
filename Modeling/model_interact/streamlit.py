@@ -139,7 +139,7 @@ model_input[genre_dict[option]] = True
 #                                                                      "country",
 #                                                                      "duration",
 #                                                                      ]+ModelHelpers.columnstartswith("genre",df=tv_df))))])
-model = joblib.load(largest_folder + model_filename)
+model = joblib.load(largest_folder + '/Modeling/models/'+ model_filename + '.joblib')
 pred = model.predict(model_input)[0]
 
 st.write(f"Your {mediatype.lower()} has a predicted score of:")
