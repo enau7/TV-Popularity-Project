@@ -19,13 +19,23 @@ jupyter: python3
 ::: panel-tabset
 #### Home
 
-**Abstract**
+## Abstract
 
 The present article analyzes a dataset containing information about titles on different streaming services and build a model to predict the popularity of an arbitrary title. The datasets used were sourced from [Kaggle](https://www.kaggle.com/) and the specific links can be found on the `Data` tab above. These provide valuable insights into the popularity and characteristics of different titles available on the streaming platforms and will help us in predicting the outcomes of future titles.
 
-**Problem Statement**
+## Problem Statement
 
 The streaming services industry has seen rapid growth in recent years and has undoubtedly revolutionized the way we consume content. With numerous platforms offering a vast array of media types, it has become increasingly important for creators and streaming platforms to understand what makes a certain movie or TV show popular. This project aims to explore the Kaggle dataset and uncover the key factors that contribute to their popularity through fitting a series of different models.
+
+## Outcomes
+- We built an app, have models, have visuals
+
+## Findings
+- Results of our work
+
+## Looking Forward
+- Why is this work important?
+- How could we have improved, what would we have wanted to add?
 
 #### Data
 
