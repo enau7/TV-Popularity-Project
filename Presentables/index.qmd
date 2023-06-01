@@ -39,10 +39,6 @@ The streaming services industry has seen rapid growth in recent years and has un
 
 #### Data
 
-TODO:
-
-- Add how we dealt with genre, making each column indicate if that genre was present
-
 ## Source
 
 We combined the below four datasets found on Kaggle to get a comprehensive dataset of movies and TV shows available on the major streaming platforms.
