@@ -58,6 +58,10 @@ genre_dict = dict(zip([pretty_genre(x) for x in genres],genres))
 
 # STREAMLIT PORTION
 
+model_dict = {'Beta Regression': model_filename_beta, 'Decision Tree': model_filename_decision, 'K Nearest Neighbors': model_filename_knn,  'Random Forest' : model_filename_random}
+model_name = st.selectbox('Pick the Model:',
+    model_dict.keys())
+
 mediatype = st.radio(label = 'Would you like to make a movie or tv show?', options=["Movie","TV Show"])
 
 st.write('Select the genre of your {}.'.format(mediatype.lower()))
@@ -66,9 +70,6 @@ option = st.selectbox(
     'Genre of media:',
     sorted(genre_dict.keys()),
     label_visibility="hidden")
-model_dict = {'Beta Regression': model_filename_beta, 'Decision Tree': model_filename_decision, 'K Nearest Neighbors': model_filename_knn,  'Random Forest' : model_filename_random}
-model_name = st.selectbox('Pick the Model:',
-    model_dict.keys(),label_visibility="hidden")
 'Would you like to assign a director or give an average score?'
 director = st.checkbox('Director')
 if director:
