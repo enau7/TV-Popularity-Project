@@ -33,7 +33,7 @@ largest_folder = abs_path[:largest_folder_index]
 
 tv_df_filename = largest_folder + "/Data/data/streaming_titles_final.csv"
 dir_score_df_filename = largest_folder + "/Data/data/director_scores.csv"
-#model_filename = largest_folder + "/Modeling/models/beta_regression.joblib" trying to make type models mutiple instead of just beta
+model_filename = largest_folder + "/Modeling/models/{}.joblib".format(model_name) 
 cast_score_df_filename = largest_folder + "/Data/data/cast_scores.csv"
 
 tv_df = pd.read_csv(tv_df_filename)
@@ -63,7 +63,7 @@ option = st.selectbox(
     sorted(genre_dict.keys()),
     label_visibility="hidden")
 
-model_filename = st.selectbox('Pick the Model:',
+model_name = st.selectbox('Pick the Model:',
     ['beta_regression','decision_tree','knn','random_forest'])
 'Would you like to assign a director or give an average score?'
 director = st.checkbox('Director')
@@ -139,7 +139,6 @@ model_input[genre_dict[option]] = True
 #                                                                      "country",
 #                                                                      "duration",
 #                                                                      ]+ModelHelpers.columnstartswith("genre",df=tv_df))))])
-model = joblib.load(largest_folder + '/Modeling/models/'+ model_filename + '.joblib')
 pred = model.predict(model_input)[0]
 
 st.write(f"Your {mediatype.lower()} has a predicted score of:")
