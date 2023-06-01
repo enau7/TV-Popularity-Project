@@ -33,10 +33,6 @@ largest_folder = abs_path[:largest_folder_index]
 
 tv_df_filename = largest_folder + "/Data/data/streaming_titles_final.csv"
 dir_score_df_filename = largest_folder + "/Data/data/director_scores.csv"
-model_filename_beta = largest_folder + "/Modeling/models/beta_regression.joblib"
-model_filename_decision = largest_folder + "/Modeling/models/decision_tree.joblib"
-model_filename_knn = largest_folder + "/Modeling/models/knn.joblib"
-model_filename_random = largest_folder + "/Modeling/models/random_forest.joblib"
 cast_score_df_filename = largest_folder + "/Data/data/cast_scores.csv"
 
 tv_df = pd.read_csv(tv_df_filename)
@@ -46,7 +42,8 @@ dir_av_score_dict = dict(zip(dir_score_df["director"],dir_score_df["dir_average_
 cast_av_score_dict = dict(zip(cast_score_df["cast"],cast_score_df["cast_average_score"]))
 
 genres = tv_df.columns[tv_df.columns.str.startswith('genre.')]
-directors = sorted([str(x) for x in dir_av_score_dict.keys()])
+directors = dir_av_score_dict.keys()
+cast_members = cast_av_score_dict.keys()
 countries = supersplit(tv_df['country'])
 pretty_genre = lambda x: x[6:].replace("_"," ")
 genre_dict = dict(zip([pretty_genre(x) for x in genres],genres))
