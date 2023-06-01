@@ -33,7 +33,6 @@ largest_folder = abs_path[:largest_folder_index]
 
 tv_df_filename = largest_folder + "/Data/data/streaming_titles_final.csv"
 dir_score_df_filename = largest_folder + "/Data/data/director_scores.csv"
-model_filename = largest_folder + "/Modeling/models/{}.joblib".format(model_name) 
 cast_score_df_filename = largest_folder + "/Data/data/cast_scores.csv"
 
 tv_df = pd.read_csv(tv_df_filename)
@@ -139,6 +138,8 @@ model_input[genre_dict[option]] = True
 #                                                                      "country",
 #                                                                      "duration",
 #                                                                      ]+ModelHelpers.columnstartswith("genre",df=tv_df))))])
+model_filename = largest_folder + "/Modeling/models/{}.joblib".format(model_name)
+model = joblib.load(largest_folder + model_filename)
 pred = model.predict(model_input)[0]
 
 st.write(f"Your {mediatype.lower()} has a predicted score of:")
