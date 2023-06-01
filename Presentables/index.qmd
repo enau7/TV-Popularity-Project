@@ -364,7 +364,7 @@ The best cross-evaluation score for this model was a **root mean squared error**
 
 ### Test rMSE: 19.71
 
-The beta regression achived a **test rMSE** of **19.71**. This is about a 2 point difference from the sample standard deviation of the scores (21.7), which means the beta regression predicts about 2 rating points more accurately than guessing the mean, on average.
+The beta regression achieved a **test rMSE** of **19.71**. This is about a 2 point difference from the sample standard deviation of the scores (21.7), which means the beta regression predicts about 2 rating points more accurately than guessing the mean, on average.
 
 #### KNN
 
@@ -394,7 +394,7 @@ For KNN, we tuned two hyperparameters: `n_neighbors` and `weights`. `n_neighbors
 
 ### Test rMSE: 20.52
 
-The K-Nearest Neighbors model achived a **test rMSE** of **20.52**. This is about a 1 point difference from the sample standard deviation of the scores (21.7), which means the beta regression predicts about 1 rating point more accurately than guessing the mean, on average.
+The K-Nearest Neighbors model achieved a **test rMSE** of **20.52**. This is about a 1 point difference from the sample standard deviation of the scores (21.7), which means the beta regression predicts about 1 rating point more accurately than guessing the mean, on average.
 
 
 #### Decision Tree
@@ -422,7 +422,7 @@ For the decision tree, we chose to tune two hyperparameters: `max_depth` and `mi
 
 ### Test rMSE: 19.84
 
-The Decision Tree achived a **test rMSE** of **19.84**. This is about a 2 point difference from the sample standard deviation of the scores (21.7), which means the beta regression predicts about 2 rating points more accurately than guessing the mean, on average.
+The Decision Tree achieved a **test rMSE** of **19.84**. This is about a 2 point difference from the sample standard deviation of the scores (21.7), which means the beta regression predicts about 2 rating points more accurately than guessing the mean, on average.
 
 #### Random Forest
 
@@ -450,7 +450,7 @@ Because a random forest contains many decision trees, you can tune both the hype
 
 ### Test rMSE: 19.03
 
-The Decision Tree achived a **test rMSE** of **19.03**. This is almost a 3 point difference from the sample standard deviation of the scores (21.7), which means the beta regression predicts almost 3 rating points more accurately than guessing the mean, on average.
+The Decision Tree achieved a **test rMSE** of **19.03**. This is almost a 3 point difference from the sample standard deviation of the scores (21.7), which means the beta regression predicts almost 3 rating points more accurately than guessing the mean, on average.
 
 :::
 
