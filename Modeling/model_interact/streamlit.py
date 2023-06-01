@@ -42,7 +42,7 @@ cast_score_df_filename = largest_folder + "/Data/data/cast_scores.csv"
 tv_df = pd.read_csv(tv_df_filename)
 dir_score_df = pd.read_csv(dir_score_df_filename)
 cast_score_df = pd.read_csv(cast_score_df_filename)
-dir_av_score_dict = dict(zip(dir_score_df["director"],dir_score_df["dir_average_score"]))
+dir_av_score_dict = dict(zip(dir_score_df["director"],dir_score_df["dir_average_score"])).pop('20th_century_fox')
 cast_av_score_dict = dict(zip(cast_score_df["cast"],cast_score_df["cast_average_score"]))
 
 
