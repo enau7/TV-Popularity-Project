@@ -27,15 +27,9 @@ The present article analyzes a dataset containing information about titles on di
 
 The streaming services industry has seen rapid growth in recent years and has undoubtedly revolutionized the way we consume content. With numerous platforms offering a vast array of media types, it has become increasingly important for creators and streaming platforms to understand what makes a certain movie or TV show popular. This project aims to explore the Kaggle dataset and uncover the key factors that contribute to their popularity through fitting a series of different models.
 
-## Outcomes
+## Outcomes and Looking Forward
 
-We developed a web app that predicts a score for a show or movie given particular inputs. The hope is to give producers an idea of how popular a potential show or movie will be based on what their idea is.
-
-## Findings
-- Results of our work... (how good the models did, what the app can be used for, interpretation of EDA)
-
-## Looking Forward
-This analysis is important because it shows how data can be used to create media people actaully want.
+We developed a web app that predicts a score for a show or movie given particular inputs. The hope is to give producers an idea of how popular a show or movie will be before they spend the time and money on producing it. This analysis is important because it shows how data can be used to create media people actaully want.
 
 We have a column in our dataset `description` that describes each show and movie. I think it would have been interesting to use word vectoriztion and natural language processing (NLP) to quantify this. If we were to expand on this project, adding an NLP component would be one avenue to do so.
 A neural network may have also been an interesting model to apply. Neural networks are considered to be highly flexible but not very interpretable, so adding this model to the app may or may not have been beneficial. In a practical sense, the model should be somewhat interpretable if order to use with the web app, however, predictive power is beneficial in its own right.
@@ -50,9 +44,7 @@ We combined the below four datasets found on Kaggle to get a comprehensive datas
 -   [Hulu](https://www.kaggle.com/datasets/shivamb/hulu-movies-and-tv-shows)
 -   [Amazon Prime](https://www.kaggle.com/datasets/shivamb/amazon-prime-movies-and-tv-shows)
 -   [Netflix](https://www.kaggle.com/datasets/shivamb/netflix-shows)
-
-*** Link where we got the API / which one it was ***
- 
+-   [IMDB API](https://rapidapi.com/linaspurinis/api/mdblist)
 
 ## Variable Description
 
@@ -81,8 +73,8 @@ Due to the four original datasets being from Kaggle and in the same format we we
 ### API
 To fill in the missing IMDB scores we used an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). In order to use the API we made a python script using the requests library that would query the API with the title of the show or movie we wanted the score for. From there the API  searches its internal database and would pull the IMDB score from there. From there our python script would append our dataset with the score pulled from the API. 
 
-### Director and cast data
-Since we wanted to use each director and cast member as their own predictor we had to get the overall average IMDB score for each director or cast member. The main issue with this was each movie or show would store their cast members or directors if they had multiple in a list. This would make it hard to compute the average since we would not be able to iterate over each cast member or director this way. In order to be able to iterate we had to split the lists and make each director or cast member their own respective row. From here we were able to iterate over each cast member or director and compute their average score, but before we did that we split our dataset into a train and test set in order to prevent data leakage. **INSERT COLTON DATA LEAKAGE SENTANCE. After we split the data to prevent data leakage we then computed the averages for the train data set. After the averages were computed for the directors and cast members the train dataset and test were merged back together to be fed into the models.   
+### Director and Cast data
+Since we wanted to use each director and cast member as their own predictor we had to get the overall average IMDB score for each director or cast member. A challenge we overcame was that each row stored their cast members or directors as a list. This would make it hard to compute the average since we would not be able to iterate over each cast member or director this way. In order to solve this, we split the lists and make each director or cast member their own respective row. From here we were able to iterate over each cast member or director and compute their average score. Computing the average score bring into question data leakage because some values from the response would be used to make predictors. To prevent this from happing, we split the entire dataset in half, and computed the averages on only one half of the dataset. We used the other half of the dataset, now imputed with the average scores, for training and testing. After the averages were computed for the directors and cast members the train dataset and test were merged back together to be fed into the models.   
 
 
 ### Cleaning Factors
@@ -90,9 +82,7 @@ For Genre we had some values that had multiple alliases such as Not Rated and NR
 
 ## Overview
 
-The response varaible that we used for prediction was the IMDB score of the Movie or TV Show. After combing the four datasets we found on Kaggle we discovered some of the shows had null values for their IMDB score. In order to replace these nulls we connected to an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). With this API we were able to query by Movie or Show Title and get it's IMDB score.
-
-The next part was the cleaning and formating of our data so that it can be vectorized for our models. Since cast, director, and country of origin were all in lists, we had to split each list value into their own rows. Due to this spliting we can turn our categorical variables into numerical representation in order for our model to read it.
+The response varaible that we used for prediction was the IMDB score of the Movie or TV Show. After combing the four datasets we found on Kaggle we discovered some of the shows had null values for their IMDB score. In order to replace these nulls we connected to an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). With this API we were able to query by Movie or Show Title and get it's IMDB score. We then cleaned and formatted our data so that it could be vectorized for our models. Since cast, director, and country of origin were all in lists, we had to split each list value into their own rows. Due to this spliting we can turn our categorical variables into numerical representation in order for our model to read it.
 
 #### Exploratory Data Analysis (EDA)
 
