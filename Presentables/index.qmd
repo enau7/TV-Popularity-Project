@@ -79,14 +79,15 @@ Together, these variables provide a set of features that allow us to analyze and
 ## Cleaning
 
 ### Original Data
-- Original state of the data
-- How good is the original data? How many patterns can we reasonably extract from it?
+Due to the four original datasets being from Kaggle and in the same format we were able to merge them into one dataset that encompassed all of the previously mentioned streaming sites. The main area of concern with this dataset were the missing IMDB scores as that is the key metric we were using for our modeling. Another concern is that directors and casts members were in lists and this will prove to be difficult to feed to our model. 
 
 ### API
-- How we pulled the score using the API
+To fill in the missing IMDB scores we used an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). In order to use the API we made a python script using the requests library that would query the API with the title of the show or movie we wanted the score for. From there the API  searches its internal database and would pull the IMDB score from there. From there our python script would append our dataset with the score pulled from the API. 
 - Talk about descrepencies between current and API score
 
 ### Director and cast data
+Since we wanted to use each director and cast member as their own predictor we had to get the overall average IMDB score for each director or cast member. The main issue with this was each movie or show would store their cast members or directors if they had multiple in a list. This would make it hard to compute the average since we would not be able to iterate over each cast member or director this way. In order to be able to iterate we had to split the lists and make each director or cast member their own respective row. From here we were able to iterate over each cast member or director and compute their average score, but before we did that we split our dataset into a train and test set in order to prevent data leakage. **INSERT COLTON DATA LEAKAGE SENTANCE. After we split the data to prevent data leakage we then computed the averages for the train data set. After the averages were computed for the directors and cast members the train dataset and test were merged back together to be fed into the models.   
+
 - Talk about the chalenges of working with cast and director data (one hot encoding them would mean a lot of predictors)
 - Add how you calculated average director and cast score, and why it is justified without data leakage (the splitting into two sets and only calculating on one thing)
 
