@@ -315,7 +315,7 @@ This metric gives us the weighted distance our model is from the correct metric.
 
 For all of these models, we defined the set of predictor variables to be the same. These predictors included genre information, duration, release year, type, rating, director's average score, cast's average score, and country.
 
-Also, to evaluate all four model's performance and validate its predictive ability, we employed a cross-validation strategy. Code was written so that the dataset was divided into five subsets or folds, with each fold serving as a testing set while the remaining four folds were used for training. The grid search was performed within this cross-validation framework, optimizing the model's hyperparameters based on the negative root mean squared error (RMSE) metric. By utilizing cross-validation, we obtained robust estimates of the model's performance and ensured the generalization of the results to unseen data.
+Also, to evaluate all four model's performance and validate its predictive ability, we employed a cross-validation strategy. Code was written so that the dataset was divided into five subsets or folds, with each fold serving as a testing set while the remaining four folds were used for training. The grid search was performed within this cross-validation framework, optimizing the model's hyperparameters based on the negative root mean squared error (rMSE) metric. By utilizing cross-validation, we obtained robust estimates of the model's performance and ensured the generalization of the results to unseen data.
 
 # Modeling
 
@@ -324,7 +324,7 @@ Also, to evaluate all four model's performance and validate its predictive abili
 
 ## Beta Regression
 
-Beta regression is a statistical model specifically designed for modeling continuous variables bounded between 0 and 1. In our case, we used beta regression to predict the popularity score, which ranges from 0 to 100. Beta regression takes into account the distributional characteristics of the data and can handle the inherent boundedness of the popularity score, allowing for accurate predictions. It uses an underlying logistic function to transform a linear regression.
+Beta regression is a statistical model specifically designed for modeling continuous variables bounded between 0 and 1. In our case, we used beta regression to predict the popularity score, which ranges from 0 to 100. Beta regression takes into account the distributional characteristics of the data and can handle the inherent boundedness of the popularity score, allowing for accurate predictions. It uses an underlying sigmoid function to transform a linear regression.
 
 ![Sigmoid](Images/sigmoid.png)
 

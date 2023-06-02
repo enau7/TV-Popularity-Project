@@ -61,7 +61,7 @@ genre_dict = dict(zip([pretty_genre(x) for x in genres],genres))
 model_dict = {'Beta Regression (Most interpretable)': model_filename_beta,
               'K Nearest Neighbors': model_filename_knn,
               'Decision Tree': model_filename_decision,
-              'Random Forest (Best MSE)' : model_filename_random}
+              'Random Forest (Best rMSE)' : model_filename_random}
 model_name = st.selectbox('Pick the Model:',
     model_dict.keys())
 
