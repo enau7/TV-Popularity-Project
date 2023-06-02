@@ -80,17 +80,13 @@ Due to the four original datasets being from Kaggle and in the same format we we
 
 ### API
 To fill in the missing IMDB scores we used an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). In order to use the API we made a python script using the requests library that would query the API with the title of the show or movie we wanted the score for. From there the API  searches its internal database and would pull the IMDB score from there. From there our python script would append our dataset with the score pulled from the API. 
-- Talk about descrepencies between current and API score
 
 ### Director and cast data
 Since we wanted to use each director and cast member as their own predictor we had to get the overall average IMDB score for each director or cast member. The main issue with this was each movie or show would store their cast members or directors if they had multiple in a list. This would make it hard to compute the average since we would not be able to iterate over each cast member or director this way. In order to be able to iterate we had to split the lists and make each director or cast member their own respective row. From here we were able to iterate over each cast member or director and compute their average score, but before we did that we split our dataset into a train and test set in order to prevent data leakage. **INSERT COLTON DATA LEAKAGE SENTANCE. After we split the data to prevent data leakage we then computed the averages for the train data set. After the averages were computed for the directors and cast members the train dataset and test were merged back together to be fed into the models.   
 
-- Talk about the chalenges of working with cast and director data (one hot encoding them would mean a lot of predictors)
-- Add how you calculated average director and cast score, and why it is justified without data leakage (the splitting into two sets and only calculating on one thing)
 
-### Turning Lists into Factors
-- listed_in to genre
-- Talk about why it was justified to reduce some of the ratings, ect (not rated -> NR)
+### Cleaning Factors
+For Genre we had some values that had multiple alliases such as Not Rated and NR being the same value but when we use our one-hot encoding to vectorize these for use as predictors it would read them as seperate values. In order to prevent this we had to come up with a normalized naming scheme. In order to normalize the naming scheme we searched for unique genre values and merged all common values into a uniform name so that they can now be one-hot encoded. 
 
 ## Overview
 
