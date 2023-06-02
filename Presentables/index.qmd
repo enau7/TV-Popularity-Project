@@ -44,7 +44,7 @@ We combined the below four datasets found on Kaggle to get a comprehensive datas
 -   [Hulu](https://www.kaggle.com/datasets/shivamb/hulu-movies-and-tv-shows)
 -   [Amazon Prime](https://www.kaggle.com/datasets/shivamb/amazon-prime-movies-and-tv-shows)
 -   [Netflix](https://www.kaggle.com/datasets/shivamb/netflix-shows)
--   [IMDB API](https://rapidapi.com/linaspurinis/api/mdblist)
+-   [IMDb API](https://rapidapi.com/linaspurinis/api/mdblist)
 
 ## Variable Description
 
@@ -68,13 +68,13 @@ Together, these variables provide a set of features that allow us to analyze and
 ## Cleaning
 
 ### Original Data
-Due to the four original datasets being from Kaggle and in the same format we were able to merge them into one dataset that encompassed all of the previously mentioned streaming sites. The main area of concern with this dataset were the missing IMDB scores as that is the key metric we were using for our modeling. Another concern is that directors and casts members were in lists and this will prove to be difficult to feed to our model. 
+Due to the four original datasets being from Kaggle and in the same format we were able to merge them into one dataset that encompassed all of the previously mentioned streaming sites. The main area of concern with this dataset were the missing IMDb scores as that is the key metric we were using for our modeling. Another concern is that directors and casts members were in lists and this will prove to be difficult to feed to our model. 
 
 ### API
-To fill in the missing IMDB scores we used an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). In order to use the API we made a python script using the requests library that would query the API with the title of the show or movie we wanted the score for. From there the API  searches its internal database and would pull the IMDB score from there. From there our python script would append our dataset with the score pulled from the API. 
+To fill in the missing IMDb scores we used an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). In order to use the API we made a python script using the requests library that would query the API with the title of the show or movie we wanted the score for. From there the API  searches its internal database and would pull the IMDb score from there. From there our python script would append our dataset with the score pulled from the API. 
 
 ### Director and Cast data
-Since we wanted to use each director and cast member as their own predictor we had to get the overall average IMDB score for each director or cast member. A challenge we overcame was that each row stored their cast members or directors as a list. This would make it hard to compute the average since we would not be able to iterate over each cast member or director this way. In order to solve this, we split the lists and make each director or cast member their own respective row. From here we were able to iterate over each cast member or director and compute their average score. Computing the average score bring into question data leakage because some values from the response would be used to make predictors. To prevent this from happing, we split the entire dataset in half, and computed the averages on only one half of the dataset. We used the other half of the dataset, now imputed with the average scores, for training and testing. After the averages were computed for the directors and cast members the train dataset and test were merged back together to be fed into the models.   
+Since we wanted to use each director and cast member as their own predictor we had to get the overall average IMDb score for each director or cast member. A challenge we overcame was that each row stored their cast members or directors as a list. This would make it hard to compute the average since we would not be able to iterate over each cast member or director this way. In order to solve this, we split the lists and make each director or cast member their own respective row. From here we were able to iterate over each cast member or director and compute their average score. Computing the average score bring into question data leakage because some values from the response would be used to make predictors. To prevent this from happening, we split the entire dataset in half, and computed the averages on only one half of the dataset. We used the other half of the dataset, now imputed with the average scores, for training and testing. After the averages were computed for the directors and cast members the train dataset and test were merged back together to be fed into the models.   
 
 
 ### Cleaning Factors
@@ -82,27 +82,25 @@ For Genre we had some values that had multiple alliases such as Not Rated and NR
 
 ## Overview
 
-The response varaible that we used for prediction was the IMDB score of the Movie or TV Show. After combing the four datasets we found on Kaggle we discovered some of the shows had null values for their IMDB score. In order to replace these nulls we connected to an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). With this API we were able to query by Movie or Show Title and get it's IMDB score. We then cleaned and formatted our data so that it could be vectorized for our models. Since cast, director, and country of origin were all in lists, we had to split each list value into their own rows. Due to this spliting we can turn our categorical variables into numerical representation in order for our model to read it.
+The response varaible that we used for prediction was the IMDb score of the Movie or TV Show. After combing the four datasets we found on Kaggle we discovered some of the shows had null values for their IMDb score. In order to replace these nulls we connected to an API that can be found [here](https://rapidapi.com/linaspurinis/api/mdblist). With this API we were able to query by Movie or Show Title and get it's IMDb score. We then cleaned and formatted our data so that it could be vectorized for our models. Since cast, director, and country of origin were all in lists, we had to split each list value into their own rows. Due to this spliting we can turn our categorical variables into numerical representation in order for our model to read it.
 
 #### Exploratory Data Analysis (EDA)
 
 In this section we will explore and visualize our dataset to gain a better understanding of what we are working with, identify any obvious patterns, correlations, or trends.
 
-TODO: Add description / interpretation for each figure
+## Figures
+
+::: panel-tabset
 
 ```{python}
 import pandas as pd
 data = pd.read_csv("../Data/data/streaming_titles_final.csv")
 ```
 
-## Figures
-
-::: panel-tabset
 ```{python}
 # | echo: False
 import matplotlib.pyplot as plt
 
-data = data
 data.head()
 ```
 
@@ -289,6 +287,10 @@ plt.show()
 ```
 :::
 
+These visualizations revealed several intriguing patterns. We almost have an 80/20 split of movies and shows within our data. The number of released titles per year is exponential, and is only hindered in 2020, due to the COVID-19 pandemic limiting production. The few bar plots also demonstrate the ratings, major countries, and the types of media within the dataset. Now we have a much better picture of the data that we are working with and can keep this in mind for our future models.
+
+#### Methods & Results
+
 ```{python}
 # | echo: false
 import sys
@@ -298,10 +300,6 @@ import ModelHelpers
 import joblib
 import sklearn
 ```
-
-These visualizations revealed several intriguing patterns. We almost have an 80/20 split of movies and shows within our data. The number of released titles per year is exponential, and is only hindered in 2020, due to the COVID-19 pandemic limiting production. The few bar plots also demonstrate the ratings, major countries, and the types of media within the dataset. Now we have a much better picture of the data that we are working with and can keep this in mind for our future models.
-
-#### Methods & Results
 
 ## Overview
 
