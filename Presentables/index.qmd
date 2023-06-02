@@ -28,20 +28,17 @@ The present article analyzes a dataset containing information about titles on di
 The streaming services industry has seen rapid growth in recent years and has undoubtedly revolutionized the way we consume content. With numerous platforms offering a vast array of media types, it has become increasingly important for creators and streaming platforms to understand what makes a certain movie or TV show popular. This project aims to explore the Kaggle dataset and uncover the key factors that contribute to their popularity through fitting a series of different models.
 
 ## Outcomes
-In an attempt to give media producers an idea of how popular their show or movie will be, we have developeed a web app...
+
+We developed a web app that predicts a score for a show or movie given particular inputs. The hope is to give producers an idea of how popular a potential show or movie will be based on what their idea is.
 
 ## Findings
 - Results of our work... (how good the models did, what the app can be used for, interpretation of EDA)
 
 ## Looking Forward
-- Why is this work important?
-  Media producers can use it for... 
-
-
-- How could we have improved, what would we have wanted to add?
+This analysis is important because it shows how data can be used to create media people actaully want.
 
 We have a column in our dataset `description` that describes each show and movie. I think it would have been interesting to use word vectoriztion and natural language processing (NLP) to quantify this. If we were to expand on this project, adding an NLP component would be one avenue to do so.
-A neural network may have also been an interesting model to apply. Neural networks are considered to be highly flexible but not very interpretable, so adding this model to the app may or may not have been beneficial. In a practical sense, the model should be somewhat interpretable because that would best 
+A neural network may have also been an interesting model to apply. Neural networks are considered to be highly flexible but not very interpretable, so adding this model to the app may or may not have been beneficial. In a practical sense, the model should be somewhat interpretable if order to use with the web app, however, predictive power is beneficial in its own right.
 
 #### Data
 
